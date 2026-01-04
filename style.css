@@ -230,57 +230,87 @@ h1 {
     display: block;
 }
 
-/* --- REVIEW SECTION STYLES (NEW) --- */
+/* --- REVIEW SECTION STYLES (CENTERED FOR 2 ITEMS) --- */
 .reviews-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    display: flex; /* Changed from grid to flex to center them better */
+    flex-wrap: wrap;
+    justify-content: center; /* This centers the two boxes */
     gap: 25px;
     margin-bottom: 60px;
 }
 
 .review-card {
-    background: rgba(255, 255, 255, 0.05);
+    background: linear-gradient(145deg, rgba(30, 30, 30, 0.8), rgba(15, 15, 15, 0.9));
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    padding: 25px;
+    border-radius: 16px;
+    padding: 30px;
     display: flex;
     flex-direction: column;
     gap: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    
+    /* Sizing */
+    width: 100%;
+    max-width: 450px; /* Limits the width so they look like cards */
+    
+    /* Animation Setup */
     opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transform: translateY(30px);
+    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(168, 168, 255, 0.5);
+    box-shadow: 0 10px 40px rgba(168, 168, 255, 0.15);
 }
 
 .reviewer-header {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
 }
 
-.reviewer-header i {
-    font-size: 1.5rem;
-    color: #a8a8ff;
+.icon-bg {
+    width: 50px;
+    height: 50px;
     background: rgba(168, 168, 255, 0.1);
-    padding: 10px;
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(168, 168, 255, 0.2);
+}
+
+.icon-bg i {
+    font-size: 1.4rem;
+    color: #a8a8ff;
 }
 
 .reviewer-header h3 {
     font-size: 1.2rem;
     font-weight: 600;
+    color: #fff;
+    letter-spacing: 0.5px;
 }
 
 .review-text {
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: #ddd;
     font-style: italic;
-    line-height: 1.5;
+    line-height: 1.6;
+    background: rgba(0,0,0,0.2); /* Slight dark background behind text */
+    padding: 10px;
+    border-radius: 8px;
+    border-left: 3px solid #a8a8ff; /* Accent line */
 }
 
 .review-stars {
-    color: #ffd700; /* Gold color for stars */
-    font-size: 0.9rem;
+    color: #ffc107; /* GOLD COLOR */
+    font-size: 1rem;
+    margin-top: 5px;
+    display: flex;
+    gap: 3px;
 }
 
 /* Animation Classes */
