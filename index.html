@@ -148,11 +148,11 @@
 
             <!-- Image 8 -->
             <div class="media-card hidden">
-                <img src="Screenshot 2026-01-04 190405.png" alt="New Work 8">
+                <img src="https://via.placeholder.com/600x400/444/fff?text=New+Project+8" alt="New Work 8">
             </div>
         </div>
 
-        <!-- REVIEWS SECTION (ONLY 2 REAL ONES) -->
+        <!-- REVIEWS SECTION -->
         <h2 class="section-title hidden">Client Reviews</h2>
         <span class="subsection-label hidden">What people say</span>
 
@@ -165,6 +165,12 @@
                     <h3>Aegis</h3>
                 </div>
                 <p class="review-text">"Amazing Main Menu UI and loading screen for My flight sim."</p>
+                
+                <div class="proof-wrapper">
+                    <!-- Change 'review_proof_1.png' to your actual screenshot file name -->
+                    <img src="review_proof_1.png" alt="Proof of Aegis Review" class="proof-img">
+                </div>
+
                 <div class="review-stars">
                     <i class="fa-solid fa-star"></i>
                     <i class="fa-solid fa-star"></i>
@@ -181,6 +187,12 @@
                     <h3>Aetherion</h3>
                 </div>
                 <p class="review-text">"Great developer to work with. High quality designs and fast delivery!"</p>
+
+                <div class="proof-wrapper">
+                    <!-- Change 'review_proof_2.png' to your actual screenshot file name -->
+                    <img src="review_proof_2.png" alt="Proof of Aetherion Review" class="proof-img">
+                </div>
+
                 <div class="review-stars">
                     <i class="fa-solid fa-star"></i>
                     <i class="fa-solid fa-star"></i>
@@ -194,8 +206,13 @@
 
     </section>
 
+    <!-- NEW LIGHTBOX (FULLSCREEN IMAGE VIEWER) -->
+    <div id="lightbox" class="lightbox">
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+
     <!-- Script -->
     <script src="script.js"></script>
 </body>
 </html>
-
