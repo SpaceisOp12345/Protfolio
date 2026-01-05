@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SpaceisOp | Portfolio</title>
-    <!-- Modern Tech Font: Outfit -->
+    <!-- Modern Font -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -14,204 +14,152 @@
 </head>
 <body>
 
-    <!-- --- DYNAMIC BACKGROUND --- -->
-    <div class="fixed-background">
+    <!-- Background (Clean Stars Only) -->
+    <div class="background-container">
         <div class="stars"></div>
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-        <div class="orb orb-3"></div>
-        <div class="noise-overlay"></div>
+        <div class="stars2"></div>
     </div>
 
     <!-- MAIN HERO SECTION -->
     <section class="hero-section">
         
-        <!-- MAIN CARD -->
-        <div class="glass-card liquid-glass blur-load">
-            <div class="shine"></div>
+        <!-- MAIN PROFILE CARD -->
+        <div class="glass-card animate-on-scroll">
+            <div class="shine-effect"></div>
             
-            <!-- Profile Area -->
-            <div class="img-wrapper">
-                <img src="novaskin-wallpaper-diamondsword (1).jpg" alt="Profile Placeholder" class="profile-img">
-            </div>
+            <!-- Profile Image -->
+            <img src="novaskin-wallpaper-diamondsword (1).jpg" alt="Profile" class="profile-img">
             
-            <h1 class="gradient-text blur-text">SpaceisOp</h1>
+            <!-- Name -->
+            <h1 class="gradient-title">SpaceisOp</h1>
             
-            <!-- TYPEWRITER TEXT -->
-            <p class="bio blur-text" style="transition-delay: 0.1s;" id="typewriter-text"></p>
+            <!-- Bio (Typewriter) -->
+            <p class="bio" id="typewriter-text"></p>
 
-            <!-- SIDE-BY-SIDE CONTAINER -->
-            <div class="info-row blur-text" style="transition-delay: 0.2s;">
+            <!-- Info Boxes (Side by Side) -->
+            <div class="info-container">
                 
-                <!-- EXPERIENCE BOX -->
-                <div class="info-box glass-inset">
-                    <div class="box-header">Experience</div>
-                    <div class="info-item">
-                        <i class="fa-solid fa-code"></i> 
-                        <span>1 Month of Roblox Luau</span>
-                    </div>
-                    <div class="info-item">
-                        <i class="fa-solid fa-layer-group"></i> 
-                        <span>3 Months+ of Roblox UI</span>
-                    </div>
-                    <div class="info-item">
-                        <i class="fa-brands fa-python"></i> 
-                        <span>1.5 Years+ Python & Web Dev</span>
-                    </div>
+                <!-- Experience -->
+                <div class="info-box">
+                    <div class="box-label">Experience</div>
+                    <div class="box-row"><i class="fa-solid fa-code"></i> 1 Month Roblox Luau</div>
+                    <div class="box-row"><i class="fa-solid fa-layer-group"></i> 3 Months+ Roblox UI</div>
+                    <div class="box-row"><i class="fa-brands fa-python"></i> 1.5 Years+ Python/Web</div>
                 </div>
 
-                <!-- TERMS OF SERVICE BOX -->
-                <div class="info-box tos-border glass-inset">
-                    <div class="box-header">Terms of Service</div>
-                    <div class="info-item">
-                        <i class="fa-solid fa-hand-holding-dollar"></i> 
-                        <span>At least 5%-10% Upfront</span>
-                    </div>
-                    <div class="info-item">
-                        <i class="fa-solid fa-coins"></i> 
-                        <span>I only accept Robux</span>
-                    </div>
-                    <div class="info-item">
-                        <i class="fa-solid fa-tag"></i> 
-                        <span>Minimum wage: 200 R$</span>
-                    </div>
+                <!-- Terms of Service -->
+                <div class="info-box tos-box">
+                    <div class="box-label">Terms of Service</div>
+                    <div class="box-row"><i class="fa-solid fa-hand-holding-dollar"></i> 5%-10% Upfront</div>
+                    <div class="box-row"><i class="fa-solid fa-coins"></i> Robux Only</div>
+                    <div class="box-row"><i class="fa-solid fa-tag"></i> Min Wage: 200 R$</div>
                 </div>
 
             </div>
 
             <!-- Social Icons -->
-            <div class="social-icons blur-text" style="transition-delay: 0.3s;">
-                <a href="https://discord.com/users/1044587633235464282" target="_blank" title="Discord">
-                    <i class="fa-brands fa-discord"></i>
-                </a>
-                <a href="https://www.roblox.com/users/2519020978/profile" target="_blank" title="Roblox">
-                    <svg class="custom-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M18.926 23.998L0 18.892 5.074.002 24 5.108l-5.074 18.89zM15.348 10.09l-5.282-1.453-1.414 5.273 5.282 1.453 1.414-5.273z"/>
-                    </svg>
-                </a>
+            <div class="social-links">
+                <a href="https://discord.com/users/1044587633235464282" target="_blank"><i class="fa-brands fa-discord"></i></a>
+                <a href="https://www.roblox.com/users/2519020978/profile" target="_blank"><i class="fa-solid fa-gamepad"></i></a>
             </div>
         </div>
 
-        <div class="scroll-down">
+        <div class="scroll-indicator">
             <i class="fa-solid fa-chevron-down"></i>
         </div>
     </section>
 
+
     <!-- WORK SECTION -->
     <section class="work-section">
         
-        <h2 class="section-title blur-text">Video <span class="gradient-text">Showcases</span></h2>
-        <span class="subsection-label blur-text">Selected Works</span>
-
-        <div class="media-grid">
-            <!-- Video 1 -->
-            <div class="media-card liquid-glass blur-load">
-                <div class="shine"></div>
+        <!-- VIDEOS -->
+        <h2 class="section-header animate-on-scroll">Video <span class="highlight">Showcases</span></h2>
+        
+        <div class="grid-container">
+            <div class="grid-item animate-on-scroll">
                 <video src="2026-01-01 16-00-53.mp4" controls playsinline></video>
             </div>
-
-            <!-- Video 2 -->
-            <div class="media-card liquid-glass blur-load" style="transition-delay: 0.1s;">
-                <div class="shine"></div>
+            <div class="grid-item animate-on-scroll">
                 <video src="2026-01-01 16-01-55 (2).mp4" controls playsinline></video>
             </div>
-
-            <!-- Video 3 -->
-            <div class="media-card liquid-glass blur-load" style="transition-delay: 0.2s;">
-                <div class="shine"></div>
+            <div class="grid-item animate-on-scroll">
                 <video src="2026-01-01 16-09-00.mp4" controls playsinline></video>
             </div>
         </div>
 
-        <!-- IMAGE SECTION -->
-        <h2 class="section-title blur-text">My <span class="gradient-text">Gallery</span></h2>
-        <span class="subsection-label blur-text">Snapshots & Designs</span>
+        <!-- IMAGES -->
+        <h2 class="section-header animate-on-scroll">My <span class="highlight">Gallery</span></h2>
 
-        <div class="media-grid">
+        <div class="grid-container">
             <!-- Image 1 -->
-            <div class="media-card liquid-glass blur-load">
-                <div class="shine"></div>
+            <div class="grid-item animate-on-scroll">
                 <div class="watermark">SpaceisOp</div>
-                <img src="inventory (2).png" alt="Work 1">
+                <img src="inventory (2).png" alt="Inventory UI">
             </div>
-
+            <!-- Image 2 -->
+            <div class="grid-item animate-on-scroll">
+                <div class="watermark">SpaceisOp</div>
+                <img src="Screenshot_2025-12-26_203549.png" alt="UI Design">
+            </div>
             <!-- Image 3 -->
-            <div class="media-card liquid-glass blur-load">
-                <div class="shine"></div>
+            <div class="grid-item animate-on-scroll">
                 <div class="watermark">SpaceisOp</div>
-                <img src="Screenshot_2025-12-26_203549.png" alt="Work 3">
+                <img src="Screenshot_2025-12-26_134010.png" alt="Game UI">
             </div>
-
             <!-- Image 4 -->
-            <div class="media-card liquid-glass blur-load">
-                <div class="shine"></div>
+            <div class="grid-item animate-on-scroll">
                 <div class="watermark">SpaceisOp</div>
-                <img src="Screenshot_2025-12-26_134010.png" alt="Work 4">
+                <img src="tower statsedit (1).png" alt="Tower Stats">
             </div>
-
             <!-- Image 5 -->
-            <div class="media-card liquid-glass blur-load">
-                <div class="shine"></div>
+            <div class="grid-item animate-on-scroll">
                 <div class="watermark">SpaceisOp</div>
-                <img src="tower statsedit (1).png" alt="Work 5">
+                <img src="match makingFINALyessss (1).png" alt="Matchmaking">
             </div>
-
             <!-- Image 6 -->
-            <div class="media-card liquid-glass blur-load">
-                <div class="shine"></div>
+            <div class="grid-item animate-on-scroll">
                 <div class="watermark">SpaceisOp</div>
-                <img src="match makingFINALyessss (1).png" alt="Matchmaking UI">
+                <img src="cardpng.png" alt="Card Design">
             </div>
-
             <!-- Image 7 -->
-            <div class="media-card liquid-glass blur-load">
-                <div class="shine"></div>
+            <div class="grid-item animate-on-scroll">
                 <div class="watermark">SpaceisOp</div>
-                <img src="cardpng.png" alt="Card UI">
-            </div>
-
-            <!-- Image 8 -->
-            <div class="media-card liquid-glass blur-load">
-                <div class="shine"></div>
-                <div class="watermark">SpaceisOp</div>
-                <img src="Screenshot 2026-01-04 190405.png" alt="New Work 8">
+                <img src="Screenshot 2026-01-04 190405.png" alt="New Project">
             </div>
         </div>
 
-        <!-- REVIEWS SECTION -->
-        <h2 class="section-title blur-text">Client <span class="gradient-text">Reviews</span></h2>
-        <span class="subsection-label blur-text">Verified Feedback</span>
+        <!-- REVIEWS -->
+        <h2 class="section-header animate-on-scroll">Client <span class="highlight">Reviews</span></h2>
 
-        <div class="reviews-grid">
+        <div class="reviews-container">
             
-            <!-- Review 1: Aegis -->
-            <div class="review-card liquid-glass blur-load">
-                <div class="shine"></div>
-                <div class="reviewer-header">
-                    <div class="icon-bg"><i class="fa-solid fa-user-astronaut"></i></div>
+            <!-- Review 1 -->
+            <div class="review-card animate-on-scroll">
+                <div class="review-header">
+                    <div class="pfp-circle"><i class="fa-solid fa-user"></i></div>
                     <h3>Aegis</h3>
                 </div>
-                <p class="review-text">"Amazing Main Menu UI and loading screen for My flight sim."</p>
-                <div class="proof-wrapper">
-                    <img src="Aegis_rewview.png" alt="Proof of Aegis Review" class="proof-img">
+                <p>"Amazing Main Menu UI and loading screen for My flight sim."</p>
+                <div class="proof-box">
+                    <img src="Aegis_rewview.png" alt="Proof 1">
                 </div>
-                <div class="review-stars">
+                <div class="stars-row">
                     <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                 </div>
             </div>
 
-            <!-- Review 2: Aetherion -->
-            <div class="review-card liquid-glass blur-load" style="transition-delay: 0.2s;">
-                <div class="shine"></div>
-                <div class="reviewer-header">
-                    <div class="icon-bg"><i class="fa-solid fa-robot"></i></div>
+            <!-- Review 2 -->
+            <div class="review-card animate-on-scroll">
+                <div class="review-header">
+                    <div class="pfp-circle"><i class="fa-solid fa-robot"></i></div>
                     <h3>Aetherion</h3>
                 </div>
-                <p class="review-text">"Great developer to work with. High quality designs and fast delivery!"</p>
-                <div class="proof-wrapper">
-                    <img src="Secondrewview.png" alt="Proof of Aetherion Review" class="proof-img">
+                <p>"Great developer to work with. High quality designs and fast delivery!"</p>
+                <div class="proof-box">
+                    <img src="Secondrewview.png" alt="Proof 2">
                 </div>
-                <div class="review-stars">
+                <div class="stars-row">
                     <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                 </div>
             </div>
@@ -220,13 +168,12 @@
 
     </section>
 
-    <!-- LIGHTBOX -->
+    <!-- LIGHTBOX (Image Zoom) -->
     <div id="lightbox" class="lightbox">
         <span class="close-lightbox">&times;</span>
-        <img class="lightbox-content" id="lightbox-img">
+        <img class="lightbox-img" id="zoom-img">
     </div>
 
-    <!-- Script -->
     <script src="script.js"></script>
 </body>
 </html>
