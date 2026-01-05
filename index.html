@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SpaceisOp | Portfolio</title>
     <!-- Modern Tech Font: Outfit -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -14,32 +14,34 @@
 </head>
 <body>
 
-    <!-- Stars Background -->
-    <div class="stars"></div>
-    <div class="stars2"></div>
-    
-    <!-- Top Shine -->
-    <div class="top-light"></div>
-    <!-- Nebula Glow -->
-    <div class="nebula-glow"></div>
+    <!-- --- DYNAMIC BACKGROUND --- -->
+    <div class="fixed-background">
+        <div class="stars"></div>
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        <div class="noise-overlay"></div>
+    </div>
 
     <!-- MAIN HERO SECTION -->
     <section class="hero-section">
         
-        <!-- CARD (Wider, No Tilt) -->
-        <div class="glass-card liquid-glass">
+        <!-- MAIN CARD -->
+        <div class="glass-card liquid-glass blur-load">
             <div class="shine"></div>
             
             <!-- Profile Area -->
-            <img src="novaskin-wallpaper-diamondsword (1).jpg" alt="Profile Placeholder" class="profile-img">
+            <div class="img-wrapper">
+                <img src="novaskin-wallpaper-diamondsword (1).jpg" alt="Profile Placeholder" class="profile-img">
+            </div>
             
-            <h1 class="gradient-text">SpaceisOp</h1>
+            <h1 class="gradient-text blur-text">SpaceisOp</h1>
             
             <!-- TYPEWRITER TEXT -->
-            <p class="bio" id="typewriter-text"></p>
+            <p class="bio blur-text" style="transition-delay: 0.1s;" id="typewriter-text"></p>
 
-            <!-- NEW: SIDE-BY-SIDE CONTAINER -->
-            <div class="info-row">
+            <!-- SIDE-BY-SIDE CONTAINER -->
+            <div class="info-row blur-text" style="transition-delay: 0.2s;">
                 
                 <!-- EXPERIENCE BOX -->
                 <div class="info-box glass-inset">
@@ -76,10 +78,9 @@
                 </div>
 
             </div>
-            <!-- END SIDE-BY-SIDE -->
 
             <!-- Social Icons -->
-            <div class="social-icons">
+            <div class="social-icons blur-text" style="transition-delay: 0.3s;">
                 <a href="https://discord.com/users/1044587633235464282" target="_blank" title="Discord">
                     <i class="fa-brands fa-discord"></i>
                 </a>
@@ -99,79 +100,78 @@
     <!-- WORK SECTION -->
     <section class="work-section">
         
-        <!-- VIDEO SECTION -->
-        <h2 class="section-title hidden">Video <span class="gradient-text">Showcases</span></h2>
-        <span class="subsection-label hidden">Selected Works</span>
+        <h2 class="section-title blur-text">Video <span class="gradient-text">Showcases</span></h2>
+        <span class="subsection-label blur-text">Selected Works</span>
 
         <div class="media-grid">
             <!-- Video 1 -->
-            <div class="media-card liquid-glass hidden">
+            <div class="media-card liquid-glass blur-load">
                 <div class="shine"></div>
                 <video src="2026-01-01 16-00-53.mp4" controls playsinline></video>
             </div>
 
             <!-- Video 2 -->
-            <div class="media-card liquid-glass hidden">
+            <div class="media-card liquid-glass blur-load" style="transition-delay: 0.1s;">
                 <div class="shine"></div>
                 <video src="2026-01-01 16-01-55 (2).mp4" controls playsinline></video>
             </div>
 
             <!-- Video 3 -->
-            <div class="media-card liquid-glass hidden">
+            <div class="media-card liquid-glass blur-load" style="transition-delay: 0.2s;">
                 <div class="shine"></div>
                 <video src="2026-01-01 16-09-00.mp4" controls playsinline></video>
             </div>
         </div>
 
         <!-- IMAGE SECTION -->
-        <h2 class="section-title hidden">My <span class="gradient-text">Gallery</span></h2>
-        <span class="subsection-label hidden">Snapshots & Designs</span>
+        <h2 class="section-title blur-text">My <span class="gradient-text">Gallery</span></h2>
+        <span class="subsection-label blur-text">Snapshots & Designs</span>
 
         <div class="media-grid">
             <!-- Image 1 -->
-            <div class="media-card liquid-glass hidden">
+            <div class="media-card liquid-glass blur-load">
                 <div class="shine"></div>
                 <div class="watermark">SpaceisOp</div>
                 <img src="inventory (2).png" alt="Work 1">
             </div>
 
             <!-- Image 3 -->
-            <div class="media-card liquid-glass hidden">
+            <div class="media-card liquid-glass blur-load">
                 <div class="shine"></div>
                 <div class="watermark">SpaceisOp</div>
                 <img src="Screenshot_2025-12-26_203549.png" alt="Work 3">
             </div>
 
             <!-- Image 4 -->
-            <div class="media-card liquid-glass hidden">
+            <div class="media-card liquid-glass blur-load">
                 <div class="shine"></div>
                 <div class="watermark">SpaceisOp</div>
                 <img src="Screenshot_2025-12-26_134010.png" alt="Work 4">
             </div>
 
             <!-- Image 5 -->
-            <div class="media-card liquid-glass hidden">
+            <div class="media-card liquid-glass blur-load">
                 <div class="shine"></div>
                 <div class="watermark">SpaceisOp</div>
                 <img src="tower statsedit (1).png" alt="Work 5">
             </div>
 
             <!-- Image 6 -->
-            <div class="media-card liquid-glass hidden">
+            <div class="media-card liquid-glass blur-load">
                 <div class="shine"></div>
                 <div class="watermark">SpaceisOp</div>
                 <img src="match makingFINALyessss (1).png" alt="Matchmaking UI">
             </div>
 
             <!-- Image 7 -->
-            <div class="media-card liquid-glass hidden">
+            <div class="media-card liquid-glass blur-load">
                 <div class="shine"></div>
                 <div class="watermark">SpaceisOp</div>
                 <img src="cardpng.png" alt="Card UI">
             </div>
 
             <!-- Image 8 -->
-            <div class="media-card liquid-glass hidden">
+            <div class="media-card liquid-glass blur-load">
                 <div class="shine"></div>
                 <div class="watermark">SpaceisOp</div>
                 <img src="Screenshot 2026-01-04 190405.png" alt="New Work 8">
@@ -179,52 +179,40 @@
         </div>
 
         <!-- REVIEWS SECTION -->
-        <h2 class="section-title hidden">Client <span class="gradient-text">Reviews</span></h2>
-        <span class="subsection-label hidden">Verified Feedback</span>
+        <h2 class="section-title blur-text">Client <span class="gradient-text">Reviews</span></h2>
+        <span class="subsection-label blur-text">Verified Feedback</span>
 
         <div class="reviews-grid">
             
             <!-- Review 1: Aegis -->
-            <div class="review-card liquid-glass hidden">
+            <div class="review-card liquid-glass blur-load">
                 <div class="shine"></div>
                 <div class="reviewer-header">
                     <div class="icon-bg"><i class="fa-solid fa-user-astronaut"></i></div>
                     <h3>Aegis</h3>
                 </div>
                 <p class="review-text">"Amazing Main Menu UI and loading screen for My flight sim."</p>
-                
                 <div class="proof-wrapper">
                     <img src="Aegis_rewview.png" alt="Proof of Aegis Review" class="proof-img">
                 </div>
-
                 <div class="review-stars">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                 </div>
             </div>
 
             <!-- Review 2: Aetherion -->
-            <div class="review-card liquid-glass hidden">
+            <div class="review-card liquid-glass blur-load" style="transition-delay: 0.2s;">
                 <div class="shine"></div>
                 <div class="reviewer-header">
                     <div class="icon-bg"><i class="fa-solid fa-robot"></i></div>
                     <h3>Aetherion</h3>
                 </div>
                 <p class="review-text">"Great developer to work with. High quality designs and fast delivery!"</p>
-
                 <div class="proof-wrapper">
                     <img src="Secondrewview.png" alt="Proof of Aetherion Review" class="proof-img">
                 </div>
-
                 <div class="review-stars">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                 </div>
             </div>
 
@@ -232,7 +220,7 @@
 
     </section>
 
-    <!-- EXPANDING CARD LIGHTBOX -->
+    <!-- LIGHTBOX -->
     <div id="lightbox" class="lightbox">
         <span class="close-lightbox">&times;</span>
         <img class="lightbox-content" id="lightbox-img">
