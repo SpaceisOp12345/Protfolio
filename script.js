@@ -20,7 +20,7 @@ container.addEventListener('mousemove', (e) => {
     let xAxis = (window.innerWidth / 2 - e.pageX) / 25;
     let yAxis = (window.innerHeight / 2 - e.pageY) / 25;
     
-    // Limits rotation to avoid flipping too far
+    // Limits rotation
     if(xAxis > 20) xAxis = 20; if(xAxis < -20) xAxis = -20;
     if(yAxis > 20) yAxis = 20; if(yAxis < -20) yAxis = -20;
 
@@ -39,20 +39,21 @@ container.addEventListener('mouseleave', (e) => {
 });
 
 
-/* --- CUSTOM CURSOR --- */
-const cursor = document.querySelector('.cursor');
-const cursor2 = document.querySelector('.cursor2');
+/* --- TYPEWRITER EFFECT --- */
+const textToType = "Hii, My name is SpaceisOp. I like to code, play games, and build cool stuff on the internet.";
+const typewriterElement = document.getElementById("typewriter-text");
+let typeIndex = 0;
 
-document.addEventListener('mousemove', e => {
-    cursor.style.cssText = cursor2.style.cssText = `left: ${e.clientX}px; top: ${e.clientY}px;`;
-});
+function typeWriter() {
+    if (typeIndex < textToType.length) {
+        typewriterElement.innerHTML += textToType.charAt(typeIndex);
+        typeIndex++;
+        setTimeout(typeWriter, 50); // Speed of typing (50ms)
+    }
+}
 
-// Add hover effect to interactive elements
-const clickables = document.querySelectorAll('a, .media-card, .review-card, .close-lightbox');
-clickables.forEach(el => {
-    el.addEventListener('mouseover', () => document.body.classList.add('hovered'));
-    el.addEventListener('mouseleave', () => document.body.classList.remove('hovered'));
-});
+// Start typing when page loads
+window.onload = typeWriter;
 
 
 /* --- LIGHTBOX LOGIC --- */
