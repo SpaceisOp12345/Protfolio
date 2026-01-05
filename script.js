@@ -1,50 +1,43 @@
-/* --- SMOOTH REVEAL ANIMATION --- */
-const observerOptions = {
-    threshold: 0.1, // Trigger when 10% of element is visible
-    rootMargin: "0px 0px -50px 0px" // Trigger slightly before bottom
-};
-
+/* --- SCROLL ANIMATION --- */
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
-            // Add the class that removes the blur and opacity
-            entry.target.classList.add('blur-active');
+            entry.target.classList.add('show-element');
         }
     });
-}, observerOptions);
+});
 
-// Select all elements that need the blur effect
-const hiddenElements = document.querySelectorAll('.blur-text, .blur-load');
-hiddenElements.forEach((el) => observer.observe(el));
+const animatedElements = document.querySelectorAll('.animate-on-scroll');
+animatedElements.forEach((el) => observer.observe(el));
 
 
-/* --- TYPEWRITER EFFECT --- */
-const textToType = "Hii, My name is SpaceisOp. I like to code, play games, and build cool stuff on the internet.";
-const typewriterElement = document.getElementById("typewriter-text");
-let typeIndex = 0;
+/* --- TYPEWRITER --- */
+const text = "Hii, My name is SpaceisOp. I like to code, play games, and build cool stuff on the internet.";
+const textElement = document.getElementById("typewriter-text");
+let index = 0;
 
 function typeWriter() {
-    if (typeIndex < textToType.length) {
-        typewriterElement.innerHTML += textToType.charAt(typeIndex);
-        typeIndex++;
-        setTimeout(typeWriter, 40); // Slightly faster typing for smoothness
+    if (index < text.length) {
+        textElement.innerHTML += text.charAt(index);
+        index++;
+        setTimeout(typeWriter, 40);
     }
 }
-
-// Start typing when page loads
 window.onload = typeWriter;
 
 
-/* --- LIGHTBOX LOGIC --- */
+/* --- LIGHTBOX --- */
 const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
+const zoomImg = document.getElementById('zoom-img');
 const closeBtn = document.querySelector('.close-lightbox');
-const allImages = document.querySelectorAll('.media-card img, .proof-img');
 
-allImages.forEach(img => {
+// Select all images (Gallery + Proofs)
+const images = document.querySelectorAll('.grid-item img, .proof-box img');
+
+images.forEach(img => {
     img.addEventListener('click', () => {
         lightbox.classList.add('active');
-        lightboxImg.src = img.src;
+        zoomImg.src = img.src;
     });
 });
 
@@ -53,7 +46,7 @@ closeBtn.addEventListener('click', () => {
 });
 
 lightbox.addEventListener('click', (e) => {
-    if (e.target !== lightboxImg) {
+    if (e.target !== zoomImg) {
         lightbox.classList.remove('active');
     }
 });
