@@ -1,50 +1,38 @@
-/* --- SCROLL FADE IN --- */
+/* --- SCROLL ANIMATION --- */
 const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+    entries.forEach((entry) => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
+            entry.target.classList.add('show');
         }
     });
 });
 
-const elements = document.querySelectorAll('.fade-in, .animate-on-scroll, .main-card');
-elements.forEach(el => observer.observe(el));
+const hiddenElements = document.querySelectorAll('.hidden, .media-card, .section-title, .subsection-label, .review-card');
+hiddenElements.forEach((el) => observer.observe(el));
 
-/* --- TYPEWRITER --- */
-const bioText = "Hii, My name is SpaceisOp. I like to code, play games, and build cool stuff on the internet.";
-const bioElement = document.getElementById("bio-text");
-let charIndex = 0;
 
-function typeWriter() {
-    if (charIndex < bioText.length) {
-        bioElement.innerHTML += bioText.charAt(charIndex);
-        charIndex++;
-        setTimeout(typeWriter, 35);
-    }
-}
-window.onload = typeWriter;
+/* --- LIGHTBOX LOGIC --- */
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const closeBtn = document.querySelector('.close-lightbox');
 
-/* --- ZOOM IMAGE (LIGHTBOX) --- */
-const modal = document.getElementById('zoom-modal');
-const modalImg = document.getElementById('zoom-target');
-const closeBtn = document.querySelector('.close-btn');
+// Select images from Gallery AND Reviews (but not the profile image)
+const allImages = document.querySelectorAll('.media-card img, .proof-img');
 
-// Select all zoomable images
-const images = document.querySelectorAll('.media-item img, .proof-img-container img');
-
-images.forEach(img => {
+allImages.forEach(img => {
     img.addEventListener('click', () => {
-        modal.classList.add('active');
-        modalImg.src = img.src;
+        lightbox.classList.add('active');
+        lightboxImg.src = img.src;
     });
 });
 
 closeBtn.addEventListener('click', () => {
-    modal.classList.remove('active');
+    lightbox.classList.remove('active');
 });
 
-modal.addEventListener('click', (e) => {
-    if (e.target !== modalImg) {
-        modal.classList.remove('active');
+lightbox.addEventListener('click', (e) => {
+    // If clicked outside the image, close it
+    if (e.target !== lightboxImg) {
+        lightbox.classList.remove('active');
     }
 });
