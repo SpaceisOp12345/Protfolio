@@ -4,174 +4,155 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SpaceisOp | Portfolio</title>
-    <!-- Modern Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap" rel="stylesheet">
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Link to CSS -->
+    <!-- CSS Link -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Background (Clean Stars Only) -->
-    <div class="background-container">
-        <div class="stars"></div>
-        <div class="stars2"></div>
-    </div>
+    <!-- Background Stars -->
+    <div class="bg-stars"></div>
+    <div class="bg-stars2"></div>
 
-    <!-- MAIN HERO SECTION -->
+    <!-- HERO SECTION -->
     <section class="hero-section">
-        
-        <!-- MAIN PROFILE CARD -->
-        <div class="glass-card animate-on-scroll">
-            <div class="shine-effect"></div>
-            
-            <!-- Profile Image -->
+        <div class="main-card fade-in">
+            <!-- Profile Picture (NO WATERMARK) -->
             <img src="novaskin-wallpaper-diamondsword (1).jpg" alt="Profile" class="profile-img">
             
-            <!-- Name -->
-            <h1 class="gradient-title">SpaceisOp</h1>
+            <h1 class="username">SpaceisOp</h1>
             
-            <!-- Bio (Typewriter) -->
-            <p class="bio" id="typewriter-text"></p>
+            <!-- Typewriter Bio -->
+            <p class="bio" id="bio-text"></p>
 
-            <!-- Info Boxes (Side by Side) -->
-            <div class="info-container">
-                
+            <!-- Info Container -->
+            <div class="info-row">
                 <!-- Experience -->
                 <div class="info-box">
-                    <div class="box-label">Experience</div>
-                    <div class="box-row"><i class="fa-solid fa-code"></i> 1 Month Roblox Luau</div>
-                    <div class="box-row"><i class="fa-solid fa-layer-group"></i> 3 Months+ Roblox UI</div>
-                    <div class="box-row"><i class="fa-brands fa-python"></i> 1.5 Years+ Python/Web</div>
+                    <h3>Experience</h3>
+                    <p><i class="fa-solid fa-code"></i> 1 Month Roblox Luau</p>
+                    <p><i class="fa-solid fa-layer-group"></i> 3 Months+ Roblox UI</p>
+                    <p><i class="fa-brands fa-python"></i> 1.5 Years+ Python/Web</p>
                 </div>
-
-                <!-- Terms of Service -->
-                <div class="info-box tos-box">
-                    <div class="box-label">Terms of Service</div>
-                    <div class="box-row"><i class="fa-solid fa-hand-holding-dollar"></i> 5%-10% Upfront</div>
-                    <div class="box-row"><i class="fa-solid fa-coins"></i> Robux Only</div>
-                    <div class="box-row"><i class="fa-solid fa-tag"></i> Min Wage: 200 R$</div>
+                <!-- TOS -->
+                <div class="info-box tos">
+                    <h3>Terms of Service</h3>
+                    <p><i class="fa-solid fa-hand-holding-dollar"></i> 5%-10% Upfront</p>
+                    <p><i class="fa-solid fa-coins"></i> Robux Only</p>
+                    <p><i class="fa-solid fa-tag"></i> Min Wage: 200 R$</p>
                 </div>
-
             </div>
 
-            <!-- Social Icons -->
-            <div class="social-links">
+            <!-- Socials -->
+            <div class="socials">
                 <a href="https://discord.com/users/1044587633235464282" target="_blank"><i class="fa-brands fa-discord"></i></a>
                 <a href="https://www.roblox.com/users/2519020978/profile" target="_blank"><i class="fa-solid fa-gamepad"></i></a>
             </div>
         </div>
 
-        <div class="scroll-indicator">
+        <div class="scroll-arrow">
             <i class="fa-solid fa-chevron-down"></i>
         </div>
     </section>
 
-
     <!-- WORK SECTION -->
-    <section class="work-section">
+    <section class="content-section">
         
         <!-- VIDEOS -->
-        <h2 class="section-header animate-on-scroll">Video <span class="highlight">Showcases</span></h2>
-        
-        <div class="grid-container">
-            <div class="grid-item animate-on-scroll">
+        <h2 class="section-title fade-in">Video Showcases</h2>
+        <div class="grid-gallery">
+            <div class="media-item fade-in">
                 <video src="2026-01-01 16-00-53.mp4" controls playsinline></video>
             </div>
-            <div class="grid-item animate-on-scroll">
+            <div class="media-item fade-in">
                 <video src="2026-01-01 16-01-55 (2).mp4" controls playsinline></video>
             </div>
-            <div class="grid-item animate-on-scroll">
+            <div class="media-item fade-in">
                 <video src="2026-01-01 16-09-00.mp4" controls playsinline></video>
             </div>
         </div>
 
         <!-- IMAGES -->
-        <h2 class="section-header animate-on-scroll">My <span class="highlight">Gallery</span></h2>
-
-        <div class="grid-container">
+        <h2 class="section-title fade-in">My Gallery</h2>
+        <div class="grid-gallery">
             <!-- Image 1 -->
-            <div class="grid-item animate-on-scroll">
-                <div class="watermark">SpaceisOp</div>
+            <div class="media-item fade-in">
+                <div class="watermark-overlay">SpaceisOp</div>
                 <img src="inventory (2).png" alt="Inventory UI">
             </div>
             <!-- Image 2 -->
-            <div class="grid-item animate-on-scroll">
-                <div class="watermark">SpaceisOp</div>
+            <div class="media-item fade-in">
+                <div class="watermark-overlay">SpaceisOp</div>
                 <img src="Screenshot_2025-12-26_203549.png" alt="UI Design">
             </div>
             <!-- Image 3 -->
-            <div class="grid-item animate-on-scroll">
-                <div class="watermark">SpaceisOp</div>
+            <div class="media-item fade-in">
+                <div class="watermark-overlay">SpaceisOp</div>
                 <img src="Screenshot_2025-12-26_134010.png" alt="Game UI">
             </div>
             <!-- Image 4 -->
-            <div class="grid-item animate-on-scroll">
-                <div class="watermark">SpaceisOp</div>
+            <div class="media-item fade-in">
+                <div class="watermark-overlay">SpaceisOp</div>
                 <img src="tower statsedit (1).png" alt="Tower Stats">
             </div>
             <!-- Image 5 -->
-            <div class="grid-item animate-on-scroll">
-                <div class="watermark">SpaceisOp</div>
+            <div class="media-item fade-in">
+                <div class="watermark-overlay">SpaceisOp</div>
                 <img src="match makingFINALyessss (1).png" alt="Matchmaking">
             </div>
             <!-- Image 6 -->
-            <div class="grid-item animate-on-scroll">
-                <div class="watermark">SpaceisOp</div>
+            <div class="media-item fade-in">
+                <div class="watermark-overlay">SpaceisOp</div>
                 <img src="cardpng.png" alt="Card Design">
             </div>
             <!-- Image 7 -->
-            <div class="grid-item animate-on-scroll">
-                <div class="watermark">SpaceisOp</div>
+            <div class="media-item fade-in">
+                <div class="watermark-overlay">SpaceisOp</div>
                 <img src="Screenshot 2026-01-04 190405.png" alt="New Project">
             </div>
         </div>
 
         <!-- REVIEWS -->
-        <h2 class="section-header animate-on-scroll">Client <span class="highlight">Reviews</span></h2>
-
-        <div class="reviews-container">
+        <h2 class="section-title fade-in">Client Reviews</h2>
+        <div class="reviews-row">
             
             <!-- Review 1 -->
-            <div class="review-card animate-on-scroll">
+            <div class="review-box fade-in">
                 <div class="review-header">
-                    <div class="pfp-circle"><i class="fa-solid fa-user"></i></div>
+                    <div class="pfp"><i class="fa-solid fa-user"></i></div>
                     <h3>Aegis</h3>
                 </div>
                 <p>"Amazing Main Menu UI and loading screen for My flight sim."</p>
-                <div class="proof-box">
-                    <img src="Aegis_rewview.png" alt="Proof 1">
+                <div class="proof-img-container">
+                    <img src="Aegis_rewview.png" alt="Proof">
                 </div>
-                <div class="stars-row">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
             </div>
 
             <!-- Review 2 -->
-            <div class="review-card animate-on-scroll">
+            <div class="review-box fade-in">
                 <div class="review-header">
-                    <div class="pfp-circle"><i class="fa-solid fa-robot"></i></div>
+                    <div class="pfp"><i class="fa-solid fa-robot"></i></div>
                     <h3>Aetherion</h3>
                 </div>
                 <p>"Great developer to work with. High quality designs and fast delivery!"</p>
-                <div class="proof-box">
-                    <img src="Secondrewview.png" alt="Proof 2">
+                <div class="proof-img-container">
+                    <img src="Secondrewview.png" alt="Proof">
                 </div>
-                <div class="stars-row">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
             </div>
 
         </div>
 
     </section>
 
-    <!-- LIGHTBOX (Image Zoom) -->
-    <div id="lightbox" class="lightbox">
-        <span class="close-lightbox">&times;</span>
-        <img class="lightbox-img" id="zoom-img">
+    <!-- FULLSCREEN ZOOM (LIGHTBOX) -->
+    <div id="zoom-modal" class="zoom-modal">
+        <span class="close-btn">&times;</span>
+        <img class="zoom-content" id="zoom-target">
     </div>
 
     <script src="script.js"></script>
