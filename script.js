@@ -1,13 +1,20 @@
-/* --- SCROLL ANIMATION --- */
+/* --- SMOOTH REVEAL ANIMATION --- */
+const observerOptions = {
+    threshold: 0.1, // Trigger when 10% of element is visible
+    rootMargin: "0px 0px -50px 0px" // Trigger slightly before bottom
+};
+
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('show');
+            // Add the class that removes the blur and opacity
+            entry.target.classList.add('blur-active');
         }
     });
-});
+}, observerOptions);
 
-const hiddenElements = document.querySelectorAll('.hidden, .media-card, .section-title, .subsection-label, .review-card');
+// Select all elements that need the blur effect
+const hiddenElements = document.querySelectorAll('.blur-text, .blur-load');
 hiddenElements.forEach((el) => observer.observe(el));
 
 
@@ -20,7 +27,7 @@ function typeWriter() {
     if (typeIndex < textToType.length) {
         typewriterElement.innerHTML += textToType.charAt(typeIndex);
         typeIndex++;
-        setTimeout(typeWriter, 50); // Speed of typing (50ms)
+        setTimeout(typeWriter, 40); // Slightly faster typing for smoothness
     }
 }
 
