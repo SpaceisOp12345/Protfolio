@@ -16,7 +16,7 @@ const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
 const closeBtn = document.querySelector('.close-lightbox');
 
-// Select images from Gallery AND Reviews (but not the profile image)
+// Select images from Gallery AND Reviews
 const allImages = document.querySelectorAll('.media-card img, .proof-img');
 
 allImages.forEach(img => {
@@ -31,7 +31,6 @@ closeBtn.addEventListener('click', () => {
 });
 
 lightbox.addEventListener('click', (e) => {
-    // If clicked outside the image, close it
     if (e.target !== lightboxImg) {
         lightbox.classList.remove('active');
     }
