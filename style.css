@@ -115,6 +115,15 @@ h1 {
     padding: 2px 0;
 }
 
+/* Special alignment for long text so icon stays at top */
+.info-item.align-top {
+    align-items: flex-start;
+}
+
+.info-item.align-top i {
+    margin-top: 5px;
+}
+
 .info-item:last-child {
     margin-bottom: 0;
 }
@@ -123,6 +132,7 @@ h1 {
     color: #a8a8ff;
     width: 20px;
     text-align: center;
+    flex-shrink: 0; /* Prevents icon from getting squished */
 }
 
 .tos-border .info-item i {
