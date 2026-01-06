@@ -227,23 +227,33 @@ h1 {
     transition: opacity 0.8s ease-out, transform 0.8s ease-out, border-color 0.3s;
 }
 
-/* --- WATERMARK CODE --- */
+/* --- COOL SIDE WATERMARK --- */
 .media-card::after {
-    content: "SpaceisOp";  /* THIS IS THE WATERMARK TEXT */
+    content: "SpaceisOp";  
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(-35deg); /* Centered and tilted */
-    font-size: 1.5rem;
+    bottom: -5px;     /* Sticks to the bottom */
+    right: 5px;       /* Sticks to the right */
+    
+    /* Massive size to cover area, but positioned in corner */
+    font-size: 3.5rem; 
     font-weight: 900;
-    color: rgba(255, 255, 255, 0.15); /* White with very low opacity */
-    pointer-events: none; /* Allows you to click 'play' on videos through the text */
-    white-space: nowrap;
-    z-index: 5;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    letter-spacing: 4px;
-    user-select: none; /* Prevents user from highlighting the text */
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5); /* Slight shadow to make it visible on white images */
+    font-style: italic;
+
+    /* THE STYLE: Transparent fill with a sharp white outline */
+    color: rgba(255, 255, 255, 0.03); /* Almost clear fill */
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3); /* The visible outline */
+    
+    /* Rotation makes it look dynamic and covers more vertical space */
+    transform: rotate(-15deg);
+    transform-origin: bottom right;
+
+    /* Technical settings */
+    pointer-events: none; /* Allows clicking through it */
+    user-select: none;    /* Prevents highlighting */
+    z-index: 5;
+    white-space: nowrap;
 }
 
 .media-card:hover {
