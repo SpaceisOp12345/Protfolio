@@ -1,98 +1,106 @@
-/* --- CUSTOM CURSOR --- */
-const cursor = document.getElementById('custom-cursor');
-const cursorText = document.getElementById('cursor-text');
+// ========== CUSTOM CURSOR ==========
+(function() {
+    var cursor = document.getElementById('customCursor');
+    var cursorText = document.getElementById('cursorText');
 
-let mouseX = 0, mouseY = 0;
-let cursorX = 0, cursorY = 0;
-let isClicked = false;
-let isHovering = false;
+    var mouseX = -200;
+    var mouseY = -200;
+    var cursorX = -200;
+    var cursorY = -200;
 
-// Track mouse position
-window.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-});
+    window.addEventListener('mousemove', function(e) {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
 
-window.addEventListener('mousedown', () => {
-    isClicked = true;
-    cursor.classList.add('clicked');
-});
+    window.addEventListener('mousedown', function() {
+        cursor.classList.add('is-clicked');
+    });
 
-window.addEventListener('mouseup', () => {
-    isClicked = false;
-    cursor.classList.remove('clicked');
-});
+    window.addEventListener('mouseup', function() {
+        cursor.classList.remove('is-clicked');
+    });
 
-window.addEventListener('mouseover', (e) => {
-    const tag = e.target.tagName;
-    const isLink = tag === 'A' || tag === 'BUTTON' || e.target.closest('a') || e.target.closest('button');
-    
-    if (isLink) {
-        isHovering = true;
-        cursor.classList.add('hovering');
-        cursorText.textContent = 'OPEN';
-    } else {
-        isHovering = false;
-        cursor.classList.remove('hovering');
-        cursorText.textContent = 'VIEW';
-    }
-});
+    window.addEventListener('mouseover', function(e) {
+        var el = e.target;
+        var isLink = false;
 
-// Smooth spring-like cursor follow using lerp
-function animateCursor() {
-    const ease = 0.15; // Lower = smoother/slower, Higher = snappier
-    cursorX += (mouseX - cursorX) * ease;
-    cursorY += (mouseY - cursorY) * ease;
-    
-    cursor.style.left = cursorX + 'px';
-    cursor.style.top = cursorY + 'px';
-    
-    requestAnimationFrame(animateCursor);
-}
-animateCursor();
+        if (el.tagName === 'A' || el.tagName === 'BUTTON') {
+            isLink = true;
+        } else if (el.closest && (el.closest('a') || el.closest('button'))) {
+            isLink = true;
+        }
 
-// Hide cursor when mouse leaves window
-document.addEventListener('mouseleave', () => {
-    cursor.style.opacity = '0';
-});
-document.addEventListener('mouseenter', () => {
-    cursor.style.opacity = '1';
-});
-
-
-/* --- SCROLL ANIMATION --- */
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('show');
+        if (isLink) {
+            cursor.classList.add('is-hovering');
+            cursorText.textContent = 'OPEN';
+        } else {
+            cursor.classList.remove('is-hovering');
+            cursorText.textContent = 'VIEW';
         }
     });
-});
 
-const hiddenElements = document.querySelectorAll('.hidden, .media-card, .section-title, .subsection-label, .review-card');
-hiddenElements.forEach((el) => observer.observe(el));
-
-
-/* --- LIGHTBOX LOGIC --- */
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
-const closeBtn = document.querySelector('.close-lightbox');
-
-const allImages = document.querySelectorAll('.media-card img, .proof-img');
-
-allImages.forEach(img => {
-    img.addEventListener('click', () => {
-        lightbox.classList.add('active');
-        lightboxImg.src = img.src;
+    document.addEventListener('mouseleave', function() {
+        cursor.classList.add('is-hidden');
     });
-});
 
-closeBtn.addEventListener('click', () => {
-    lightbox.classList.remove('active');
-});
+    document.addEventListener('mouseenter', function() {
+        cursor.classList.remove('is-hidden');
+    });
 
-lightbox.addEventListener('click', (e) => {
-    if (e.target !== lightboxImg) {
-        lightbox.classList.remove('active');
+    function updateCursor() {
+        var ease = 0.12;
+        cursorX += (mouseX - cursorX) * ease;
+        cursorY += (mouseY - cursorY) * ease;
+
+        cursor.style.left = cursorX + 'px';
+        cursor.style.top = cursorY + 'px';
+
+        requestAnimationFrame(updateCursor);
     }
-});
+    updateCursor();
+})();
+
+
+// ========== SCROLL ANIMATION ==========
+(function() {
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            }
+        });
+    });
+
+    var hiddenElements = document.querySelectorAll('.hidden, .media-card, .section-title, .subsection-label, .review-card');
+    hiddenElements.forEach(function(el) {
+        observer.observe(el);
+    });
+})();
+
+
+// ========== LIGHTBOX ==========
+(function() {
+    var lightbox = document.getElementById('lightbox');
+    var lightboxImg = document.getElementById('lightbox-img');
+    var closeBtn = document.querySelector('.close-lightbox');
+
+    var allImages = document.querySelectorAll('.media-card img, .proof-img');
+
+    allImages.forEach(function(img) {
+        img.addEventListener('click', function() {
+            lightbox.classList.add('active');
+            lightboxImg.src = img.src;
+        });
+    });
+
+    closeBtn.addEventListener('click', function() {
+        lightbox.classList.remove('active');
+    });
+
+    lightbox.addEventListener('click', function(e) {
+        if (e.target !== lightboxImg) {
+            lightbox.classList.remove('active');
+        }
+    });
+})();
