@@ -3,6 +3,8 @@
     var cursor = document.getElementById('customCursor');
     var cursorText = document.getElementById('cursorText');
 
+    if (!cursor || !cursorText) return;
+
     var mouseX = -200;
     var mouseY = -200;
     var cursorX = -200;
@@ -28,6 +30,11 @@
         if (el.tagName === 'A' || el.tagName === 'BUTTON') {
             isLink = true;
         } else if (el.closest && (el.closest('a') || el.closest('button'))) {
+            isLink = true;
+        }
+
+        // Also detect close button and clickable elements
+        if (el.classList.contains('close-lightbox') || el.closest('.close-lightbox')) {
             isLink = true;
         }
 
@@ -84,6 +91,8 @@
     var lightbox = document.getElementById('lightbox');
     var lightboxImg = document.getElementById('lightbox-img');
     var closeBtn = document.querySelector('.close-lightbox');
+
+    if (!lightbox || !lightboxImg || !closeBtn) return;
 
     var allImages = document.querySelectorAll('.media-card img, .proof-img');
 
