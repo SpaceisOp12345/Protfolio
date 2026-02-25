@@ -26,19 +26,24 @@
     window.addEventListener('mouseover', function(e) {
         var el = e.target;
         var isLink = false;
+        var isClose = false;
 
+        // Check if hovering close button
+        if (el.classList.contains('close-lightbox') || (el.closest && el.closest('.close-lightbox'))) {
+            isClose = true;
+        }
+
+        // Check if hovering a link or button
         if (el.tagName === 'A' || el.tagName === 'BUTTON') {
             isLink = true;
         } else if (el.closest && (el.closest('a') || el.closest('button'))) {
             isLink = true;
         }
 
-        // Also detect close button and clickable elements
-        if (el.classList.contains('close-lightbox') || el.closest('.close-lightbox')) {
-            isLink = true;
-        }
-
-        if (isLink) {
+        if (isClose) {
+            cursor.classList.add('is-hovering');
+            cursorText.textContent = 'CLOSE';
+        } else if (isLink) {
             cursor.classList.add('is-hovering');
             cursorText.textContent = 'OPEN';
         } else {
