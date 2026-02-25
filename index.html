@@ -6,10 +6,15 @@
     <title>SpaceisOp | Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-     
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <!-- CUSTOM CURSOR -->
+    <div class="custom-cursor" id="custom-cursor">
+        <div class="cursor-inner-ring"></div>
+        <span class="cursor-text" id="cursor-text">VIEW</span>
+    </div>
 
     <div class="stars"></div>
     <div class="stars2"></div>
@@ -52,10 +57,8 @@
                     <i class="fa-solid fa-coins"></i> 
                     <span>I only accept Robux and Giftcards.</span>
                 </div>
-                
 
-                
-                 <div class="info-item">
+                <div class="info-item">
                     <i class="fa-solid fa-gavel"></i> 
                     <span>I have the right to deny any commission or revisions with/without reason.</span>
                 </div>
@@ -69,12 +72,12 @@
                     <span>Commission may be cancelled for disrespect, rushing, or poor communication. I will always give a reason.</span>
                 </div>
                 
-                 <div class="info-item">
+                <div class="info-item">
                     <i class="fa-solid fa-ban"></i> 
                     <span>No, I do not make custom icons.</span>
                 </div>
 
-                 <div class="info-item">
+                <div class="info-item">
                     <i class="fa-solid fa-clock"></i> 
                     <span>All deadlines must be based on my timezone GMT+5.</span>
                 </div>
@@ -103,15 +106,15 @@
         <span class="subsection-label hidden">Selected Works</span>
 
         <div class="media-grid">
-            <div class="media-card hidden">
+            <div class="media-card hidden" data-label="Commission Work">
                 <video src="2026-01-01 16-00-53.mp4" controls playsinline></video>
             </div>
 
-            <div class="media-card hidden">
+            <div class="media-card hidden" data-label="Commission Work">
                 <video src="2026-01-01 16-01-55 (2).mp4" controls playsinline></video>
             </div>
 
-            <div class="media-card hidden">
+            <div class="media-card hidden" data-label="Commission Work">
                 <video src="2026-01-01 16-09-00.mp4" controls playsinline></video>
             </div>
         </div>
@@ -120,41 +123,34 @@
         <span class="subsection-label hidden">Snapshots & Designs</span>
 
         <div class="media-grid">
-            <div class="media-card hidden">
-                <img src="inventory (2).png" alt="Work 1">
-            </div>
-
-           
-            <div class="media-card hidden">
+            <div class="media-card hidden" data-label="Commission Work">
                 <img src="Screenshot_2025-12-26_203549.png" alt="Work 3">
             </div>
 
-            <div class="media-card hidden">
+            <div class="media-card hidden" data-label="Commission Work">
                 <img src="Screenshot_2025-12-26_134010.png" alt="Work 4">
             </div>
 
-            <div class="media-card hidden">
+            <div class="media-card hidden" data-label="Commission Work">
                 <img src="tower statsedit (1).png" alt="Work 5">
             </div>
 
-            <div class="media-card hidden">
+            <div class="media-card hidden" data-label="Commission Work">
                 <img src="match makingFINALyessss (1).png" alt="Matchmaking UI">
             </div>
 
-            <div class="media-card hidden">
+            <div class="media-card hidden" data-label="Commission Work">
                 <img src="cardpng.png" alt="Card UI">
             </div>
 
-            <div class="media-card hidden">
+            <div class="media-card hidden" data-label="Commission Work">
                 <img src="Screenshot 2026-01-04 190405.png" alt="New Work 8">
             </div>
 
-           
-            <div class="media-card hidden">
+            <div class="media-card hidden" data-label="Commission Work">
                 <img src="6c6b4e0a_original.jpg" alt="New Work 8">
             </div>
         </div>
-        
 
         <h2 class="section-title hidden">Client Reviews</h2>
         <span class="subsection-label hidden">What people say</span>
@@ -211,28 +207,19 @@
     </div>
 
     <div class="contact-box">
-                <p class="contact-label">Ready to order? DM Me!</p>
-                <div class="social-icons">
-                    <a href="https://discord.com/users/1044587633235464282" target="_blank" title="Discord">
-                        <i class="fa-brands fa-discord"></i>
-                    </a>
-                    <a href="https://www.roblox.com/users/2519020978/profile" target="_blank" title="Roblox">
-                        <svg class="custom-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M18.926 23.998L0 18.892 5.074.002 24 5.108l-5.074 18.89zM15.348 10.09l-5.282-1.453-1.414 5.273 5.282 1.453 1.414-5.273z"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
+        <p class="contact-label">Ready to order? DM Me!</p>
+        <div class="social-icons">
+            <a href="https://discord.com/users/1044587633235464282" target="_blank" title="Discord">
+                <i class="fa-brands fa-discord"></i>
+            </a>
+            <a href="https://www.roblox.com/users/2519020978/profile" target="_blank" title="Roblox">
+                <svg class="custom-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18.926 23.998L0 18.892 5.074.002 24 5.108l-5.074 18.89zM15.348 10.09l-5.282-1.453-1.414 5.273 5.282 1.453 1.414-5.273z"/>
+                </svg>
+            </a>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
