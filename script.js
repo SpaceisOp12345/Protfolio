@@ -28,12 +28,10 @@
         var isLink = false;
         var isClose = false;
 
-        // Check if hovering close button
         if (el.classList.contains('close-lightbox') || (el.closest && el.closest('.close-lightbox'))) {
             isClose = true;
         }
 
-        // Check if hovering a link or button
         if (el.tagName === 'A' || el.tagName === 'BUTTON') {
             isLink = true;
         } else if (el.closest && (el.closest('a') || el.closest('button'))) {
@@ -117,4 +115,51 @@
             lightbox.classList.remove('active');
         }
     });
+})();
+
+
+// ========== PROCESS TIMELINE ==========
+(function() {
+    var timelineProgress = document.getElementById('timelineProgress');
+    var timelineItems = document.querySelectorAll('.timeline-item');
+    var timelineSection = document.querySelector('.process-section');
+    var timeline = document.querySelector('.timeline');
+
+    if (!timelineProgress || !timelineItems.length || !timelineSection || !timeline) return;
+
+    function updateTimeline() {
+        var timelineRect = timeline.getBoundingClientRect();
+        var windowHeight = window.innerHeight;
+
+        // Calculate how far the user has scrolled through the timeline
+        var timelineTop = timelineRect.top;
+        var timelineHeight = timelineRect.height;
+
+        // The progress line starts filling when the timeline enters the viewport
+        // and completes when the bottom of the timeline reaches the center of the viewport
+        var scrollStart = windowHeight * 0.7; // Start when top is 70% down viewport
+        var scrolled = scrollStart - timelineTop;
+        var totalScroll = timelineHeight;
+
+        var progress = Math.min(Math.max(scrolled / totalScroll, 0), 1);
+
+        timelineProgress.style.height = (progress * 100) + '%';
+
+        // Activate individual timeline items
+        timelineItems.forEach(function(item) {
+            var itemRect = item.getBoundingClientRect();
+            var itemTop = itemRect.top;
+
+            // Activate when the item's top reaches 75% of the viewport height
+            if (itemTop < windowHeight * 0.75) {
+                item.classList.add('active');
+            }
+        });
+    }
+
+    // Run on scroll
+    window.addEventListener('scroll', updateTimeline, { passive: true });
+
+    // Run on load
+    updateTimeline();
 })();
