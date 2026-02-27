@@ -14,6 +14,155 @@ body {
     min-height: 100vh;
 }
 
+/* ========================================
+   NAVBAR
+   ======================================== */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 40px;
+    background: rgba(10, 10, 15, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.nav-logo {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, #a8a8ff, #7b7bff);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.nav-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 16px;
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    position: relative;
+    white-space: nowrap;
+}
+
+.nav-link i {
+    font-size: 0.9rem;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.nav-link span {
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.nav-link:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.nav-link.active {
+    color: #a8a8ff;
+    background: rgba(168, 168, 255, 0.1);
+}
+
+.nav-link.active i {
+    text-shadow: 0 0 10px rgba(168, 168, 255, 0.5);
+}
+
+/* --- NAVBAR DOCKED (bottom, compact) --- */
+.navbar.docked {
+    top: auto;
+    bottom: 20px;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    padding: 8px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(10, 10, 18, 0.92);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.7),
+                0 0 20px rgba(168, 168, 255, 0.08);
+    width: auto;
+    max-width: 90vw;
+}
+
+.navbar.docked .nav-brand {
+    display: none;
+}
+
+.navbar.docked .nav-links {
+    gap: 4px;
+}
+
+.navbar.docked .nav-link {
+    flex-direction: column;
+    gap: 3px;
+    padding: 10px 14px;
+    border-radius: 14px;
+}
+
+.navbar.docked .nav-link i {
+    font-size: 1.1rem;
+}
+
+.navbar.docked .nav-link span {
+    font-size: 0.6rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    opacity: 0.7;
+}
+
+.navbar.docked .nav-link.active {
+    background: rgba(168, 168, 255, 0.15);
+}
+
+.navbar.docked .nav-link.active span {
+    opacity: 1;
+}
+
 /* --- CUSTOM CURSOR --- */
 .custom-cursor {
     position: fixed;
@@ -544,8 +693,11 @@ h1 {
 
 /* --- CONTACT BOX --- */
 .contact-box {
-    margin-top: 25px;
-    padding: 20px;
+    margin: 25px 20px 100px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px;
     background: rgba(168, 168, 255, 0.08);
     border: 1px solid rgba(168, 168, 255, 0.4);
     border-radius: 16px;
@@ -590,7 +742,7 @@ h1 {
    ======================================== */
 
 .process-section {
-    padding: 80px 20px 100px;
+    padding: 80px 0 100px;
     max-width: 900px;
     margin: 0 auto;
     position: relative;
@@ -602,7 +754,7 @@ h1 {
     padding: 40px 0;
 }
 
-/* --- VERTICAL TRACK (background line) --- */
+/* --- VERTICAL TRACK --- */
 .timeline-track {
     position: absolute;
     left: 50%;
@@ -615,7 +767,7 @@ h1 {
     overflow: hidden;
 }
 
-/* --- ANIMATED PROGRESS LINE (fills on scroll) --- */
+/* --- ANIMATED PROGRESS LINE --- */
 .timeline-progress {
     position: absolute;
     top: 0;
@@ -629,7 +781,7 @@ h1 {
                 0 0 25px rgba(168, 168, 255, 0.2);
 }
 
-/* --- TIMELINE ITEM (each step row) --- */
+/* --- TIMELINE ITEM --- */
 .timeline-item {
     position: relative;
     display: flex;
@@ -642,13 +794,11 @@ h1 {
     margin-bottom: 0;
 }
 
-/* Left-aligned card */
 .timeline-item.left {
     justify-content: flex-start;
     padding-right: calc(50% + 40px);
 }
 
-/* Right-aligned card */
 .timeline-item.right {
     justify-content: flex-end;
     padding-left: calc(50% + 40px);
@@ -678,7 +828,6 @@ h1 {
     transition: color 0.5s ease, text-shadow 0.5s ease;
 }
 
-/* Dot active state (when scrolled into view) */
 .timeline-item.active .timeline-dot {
     border-color: #a8a8ff;
     box-shadow: 0 0 20px rgba(168, 168, 255, 0.4),
@@ -691,7 +840,6 @@ h1 {
     text-shadow: 0 0 10px rgba(168, 168, 255, 0.6);
 }
 
-/* Dot pulse animation */
 .timeline-item.active .timeline-dot::after {
     content: '';
     position: absolute;
@@ -727,7 +875,6 @@ h1 {
     transition: opacity 0.8s ease, transform 0.8s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Cards slide in from their respective sides */
 .timeline-item.left .timeline-card {
     transform: translateX(-60px);
 }
@@ -736,13 +883,11 @@ h1 {
     transform: translateX(60px);
 }
 
-/* Active / visible state */
 .timeline-item.active .timeline-card {
     opacity: 1;
     transform: translateX(0);
 }
 
-/* Hover effect */
 .timeline-card:hover {
     border-color: rgba(168, 168, 255, 0.4);
     box-shadow: 0 8px 40px rgba(168, 168, 255, 0.12);
@@ -778,7 +923,7 @@ h1 {
     font-weight: 300;
 }
 
-/* --- CONNECTOR LINES (card to dot) --- */
+/* --- CONNECTOR LINES --- */
 .timeline-item.left::after,
 .timeline-item.right::after {
     content: '';
@@ -804,10 +949,11 @@ h1 {
 }
 
 /* ============================================
-   RESPONSIVE: MOBILE TIMELINE (single column)
+   RESPONSIVE: MOBILE
    ============================================ */
 @media (max-width: 700px) {
 
+    /* Timeline mobile */
     .timeline-track {
         left: 24px;
         transform: none;
@@ -840,7 +986,6 @@ h1 {
         transform: translateX(0);
     }
 
-    /* Hide connector lines on mobile */
     .timeline-item.left::after,
     .timeline-item.right::after {
         display: none;
@@ -856,5 +1001,45 @@ h1 {
 
     .timeline-card p {
         font-size: 0.82rem;
+    }
+
+    /* Navbar mobile top state */
+    .navbar:not(.docked) {
+        padding: 12px 16px;
+    }
+
+    .navbar:not(.docked) .nav-name {
+        display: none;
+    }
+
+    .navbar:not(.docked) .nav-link span {
+        display: none;
+    }
+
+    .navbar:not(.docked) .nav-links {
+        gap: 2px;
+    }
+
+    .navbar:not(.docked) .nav-link {
+        padding: 8px 10px;
+    }
+
+    /* Navbar mobile docked */
+    .navbar.docked .nav-link {
+        padding: 8px 10px;
+    }
+
+    .navbar.docked .nav-link span {
+        font-size: 0.5rem;
+    }
+}
+
+@media (max-width: 420px) {
+    .navbar.docked .nav-link span {
+        display: none;
+    }
+
+    .navbar.docked .nav-link {
+        padding: 10px 12px;
     }
 }
