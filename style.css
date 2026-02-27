@@ -50,7 +50,7 @@ body {
 .reviews-grid .fade-blur:nth-child(2) { transition-delay: 0.15s; }
 
 /* ========================================
-   NAVBAR — BOTTOM, TEXT ONLY, ROUNDED
+   NAVBAR — FIXED AT BOTTOM, TEXT ONLY
    ======================================== */
 
 .navbar {
@@ -118,12 +118,12 @@ body {
 }
 
 /* ========================================
-   SCROLL TO TOP BUTTON
+   SCROLL TO TOP BUTTON — BOTTOM RIGHT
    ======================================== */
 
 .scroll-top-btn {
     position: fixed;
-    bottom: 90px;
+    bottom: 100px;
     right: 24px;
     z-index: 9999;
     width: 48px;
@@ -168,7 +168,10 @@ body {
     transform: translateY(-2px);
 }
 
-/* --- CUSTOM CURSOR --- */
+/* ========================================
+   CUSTOM CURSOR
+   ======================================== */
+
 .custom-cursor {
     position: fixed;
     width: 110px;
@@ -203,6 +206,7 @@ body {
     border-radius: 50%;
     border: 1px solid rgba(255, 255, 255, 0.9);
     pointer-events: none;
+    transition: opacity 0.3s ease;
 }
 
 .cursor-text {
@@ -213,9 +217,10 @@ body {
     text-transform: uppercase;
     pointer-events: none;
     z-index: 2;
-    transition: transform 0.15s ease;
+    transition: transform 0.15s ease, opacity 0.3s ease;
 }
 
+/* Clicked state */
 .custom-cursor.is-clicked {
     width: 90px;
     height: 90px;
@@ -229,6 +234,7 @@ body {
     transform: scale(0.85);
 }
 
+/* Hovering links (normal size) */
 .custom-cursor.is-hovering {
     width: 130px;
     height: 130px;
@@ -240,6 +246,28 @@ body {
     margin-top: -65px;
 }
 
+/* POINTER MODE — Small dot for navbar */
+.custom-cursor.is-pointer {
+    width: 12px;
+    height: 12px;
+    background-color: #a8a8ff;
+    border: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    margin-left: -6px;
+    margin-top: -6px;
+    box-shadow: 0 0 15px rgba(168, 168, 255, 0.6),
+                0 0 30px rgba(168, 168, 255, 0.3);
+}
+
+.custom-cursor.is-pointer .cursor-inner-ring {
+    opacity: 0;
+}
+
+.custom-cursor.is-pointer .cursor-text {
+    opacity: 0;
+}
+
 .custom-cursor.is-hidden {
     opacity: 0;
 }
@@ -247,19 +275,42 @@ body {
 /* --- BACKGROUND STARS --- */
 .stars, .stars2 {
     position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background: transparent;
     z-index: -1;
 }
 
 .stars {
-    width: 1px; height: 1px;
-    box-shadow: 10vw 10vh #fff, 20vw 80vh #fff, 80vw 10vh #fff, 40vw 40vh #fff, 60vw 90vh #fff, 10vw 90vh #fff;
+    width: 1px;
+    height: 1px;
+    box-shadow: 
+        10vw 10vh #fff, 
+        20vw 80vh #fff, 
+        80vw 10vh #fff, 
+        40vw 40vh #fff, 
+        60vw 90vh #fff, 
+        10vw 90vh #fff,
+        25vw 25vh #fff,
+        75vw 75vh #fff,
+        50vw 50vh #fff,
+        90vw 30vh #fff,
+        15vw 60vh #fff,
+        85vw 85vh #fff;
     animation: animStar 50s linear infinite;
 }
+
 .stars2 {
-    width: 2px; height: 2px;
-    box-shadow: 30vw 20vh #888, 70vw 50vh #888, 50vw 80vh #888;
+    width: 2px;
+    height: 2px;
+    box-shadow: 
+        30vw 20vh #888, 
+        70vw 50vh #888, 
+        50vw 80vh #888,
+        20vw 40vh #888,
+        80vw 60vh #888;
     animation: animStar 100s linear infinite;
 }
 
@@ -275,11 +326,11 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
-    padding: 50px 0;
+    padding: 50px 20px;
 }
 
 .glass-card {
-    width: 90%;
+    width: 100%;
     max-width: 480px;
     background: rgba(15, 15, 15, 0.7);
     backdrop-filter: blur(15px);
@@ -417,7 +468,6 @@ h1 {
     padding: 50px 20px 120px;
     max-width: 1100px;
     margin: 0 auto;
-    min-height: 100vh;
 }
 
 .section-title {
@@ -842,6 +892,7 @@ h1 {
     padding: 28px 24px;
     width: 100%;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .timeline-item.left .timeline-card.fade-blur {
@@ -982,8 +1033,16 @@ h1 {
     .scroll-top-btn {
         width: 42px;
         height: 42px;
-        bottom: 80px;
+        bottom: 90px;
         right: 16px;
+    }
+
+    .hero-section {
+        padding: 30px 15px;
+    }
+
+    .glass-card {
+        padding: 30px 20px;
     }
 }
 
@@ -994,7 +1053,23 @@ h1 {
     }
 
     .nav-link {
-        padding: 7px 9px;
-        font-size: 0.62rem;
+        padding: 7px 8px;
+        font-size: 0.6rem;
+    }
+
+    .glass-card {
+        padding: 25px 15px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .bio {
+        font-size: 0.9rem;
+    }
+
+    .info-item {
+        font-size: 0.8rem;
     }
 }
