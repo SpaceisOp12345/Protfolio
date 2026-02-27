@@ -150,15 +150,15 @@
 })();
 
 
-// ========== NAVBAR ==========
+// ========== NAVBAR — DOCK TO BOTTOM ON SCROLL ==========
 (function() {
     var navbar = document.getElementById('navbar');
     var navLinks = document.querySelectorAll('.nav-link');
-    var dockThreshold = 100; // pixels scrolled before docking
+    var dockThreshold = 150;
 
     if (!navbar) return;
 
-    // --- Sections for active link tracking ---
+    // Collect sections
     var sections = [];
     navLinks.forEach(function(link) {
         var sectionId = link.getAttribute('data-section');
@@ -168,14 +168,14 @@
         }
     });
 
-    // --- Smooth scroll on click ---
+    // Smooth scroll on click
     navLinks.forEach(function(link) {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             var targetId = this.getAttribute('data-section');
             var targetEl = document.getElementById(targetId);
             if (targetEl) {
-                var offset = navbar.classList.contains('docked') ? 80 : 70;
+                var offset = 80;
                 var targetPos = targetEl.getBoundingClientRect().top + window.pageYOffset - offset;
 
                 window.scrollTo({
@@ -186,7 +186,7 @@
         });
     });
 
-    // --- Scroll handler: dock navbar + highlight active link ---
+    // Scroll handler
     function onScroll() {
         var scrollY = window.pageYOffset || document.documentElement.scrollTop;
 
@@ -203,14 +203,12 @@
 
         for (var i = sections.length - 1; i >= 0; i--) {
             var rect = sections[i].el.getBoundingClientRect();
-            // Consider a section "active" when its top is above 40% of viewport
             if (rect.top <= windowHeight * 0.4) {
                 currentSection = sections[i].id;
                 break;
             }
         }
 
-        // If near top, default to home
         if (scrollY < 50) {
             currentSection = 'home';
         }
@@ -226,5 +224,5 @@
     }
 
     window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll(); // Run on load
+    onScroll();
 })();
