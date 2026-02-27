@@ -25,27 +25,54 @@
 
     window.addEventListener('mouseover', function(e) {
         var el = e.target;
+        var isNavbar = false;
         var isLink = false;
         var isClose = false;
+        var isScrollBtn = false;
 
+        // Check if hovering over navbar or its children
+        if (el.closest && el.closest('.navbar')) {
+            isNavbar = true;
+        }
+        if (el.classList.contains('navbar')) {
+            isNavbar = true;
+        }
+
+        // Check if hovering scroll-to-top button
+        if (el.closest && el.closest('.scroll-top-btn')) {
+            isScrollBtn = true;
+        }
+        if (el.classList.contains('scroll-top-btn')) {
+            isScrollBtn = true;
+        }
+
+        // Check if hovering close button
         if (el.classList.contains('close-lightbox') || (el.closest && el.closest('.close-lightbox'))) {
             isClose = true;
         }
 
-        if (el.tagName === 'A' || el.tagName === 'BUTTON') {
-            isLink = true;
-        } else if (el.closest && (el.closest('a') || el.closest('button'))) {
-            isLink = true;
+        // Check if hovering a link or button (but not navbar)
+        if (!isNavbar && !isScrollBtn) {
+            if (el.tagName === 'A' || el.tagName === 'BUTTON') {
+                isLink = true;
+            } else if (el.closest && (el.closest('a') || el.closest('button'))) {
+                isLink = true;
+            }
         }
 
-        if (isClose) {
+        // Remove all states first
+        cursor.classList.remove('is-hovering', 'is-pointer');
+
+        // Apply appropriate state
+        if (isNavbar || isScrollBtn) {
+            cursor.classList.add('is-pointer');
+        } else if (isClose) {
             cursor.classList.add('is-hovering');
             cursorText.textContent = 'CLOSE';
         } else if (isLink) {
             cursor.classList.add('is-hovering');
             cursorText.textContent = 'OPEN';
         } else {
-            cursor.classList.remove('is-hovering');
             cursorText.textContent = 'VIEW';
         }
     });
