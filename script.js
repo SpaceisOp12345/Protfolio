@@ -122,44 +122,109 @@
 (function() {
     var timelineProgress = document.getElementById('timelineProgress');
     var timelineItems = document.querySelectorAll('.timeline-item');
-    var timelineSection = document.querySelector('.process-section');
     var timeline = document.querySelector('.timeline');
 
-    if (!timelineProgress || !timelineItems.length || !timelineSection || !timeline) return;
+    if (!timelineProgress || !timelineItems.length || !timeline) return;
 
     function updateTimeline() {
         var timelineRect = timeline.getBoundingClientRect();
         var windowHeight = window.innerHeight;
 
-        // Calculate how far the user has scrolled through the timeline
-        var timelineTop = timelineRect.top;
-        var timelineHeight = timelineRect.height;
-
-        // The progress line starts filling when the timeline enters the viewport
-        // and completes when the bottom of the timeline reaches the center of the viewport
-        var scrollStart = windowHeight * 0.7; // Start when top is 70% down viewport
-        var scrolled = scrollStart - timelineTop;
-        var totalScroll = timelineHeight;
+        var scrollStart = windowHeight * 0.7;
+        var scrolled = scrollStart - timelineRect.top;
+        var totalScroll = timelineRect.height;
 
         var progress = Math.min(Math.max(scrolled / totalScroll, 0), 1);
-
         timelineProgress.style.height = (progress * 100) + '%';
 
-        // Activate individual timeline items
         timelineItems.forEach(function(item) {
             var itemRect = item.getBoundingClientRect();
-            var itemTop = itemRect.top;
-
-            // Activate when the item's top reaches 75% of the viewport height
-            if (itemTop < windowHeight * 0.75) {
+            if (itemRect.top < windowHeight * 0.75) {
                 item.classList.add('active');
             }
         });
     }
 
-    // Run on scroll
     window.addEventListener('scroll', updateTimeline, { passive: true });
-
-    // Run on load
     updateTimeline();
+})();
+
+
+// ========== NAVBAR ==========
+(function() {
+    var navbar = document.getElementById('navbar');
+    var navLinks = document.querySelectorAll('.nav-link');
+    var dockThreshold = 100; // pixels scrolled before docking
+
+    if (!navbar) return;
+
+    // --- Sections for active link tracking ---
+    var sections = [];
+    navLinks.forEach(function(link) {
+        var sectionId = link.getAttribute('data-section');
+        var sectionEl = document.getElementById(sectionId);
+        if (sectionEl) {
+            sections.push({ id: sectionId, el: sectionEl, link: link });
+        }
+    });
+
+    // --- Smooth scroll on click ---
+    navLinks.forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            var targetId = this.getAttribute('data-section');
+            var targetEl = document.getElementById(targetId);
+            if (targetEl) {
+                var offset = navbar.classList.contains('docked') ? 80 : 70;
+                var targetPos = targetEl.getBoundingClientRect().top + window.pageYOffset - offset;
+
+                window.scrollTo({
+                    top: targetPos,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // --- Scroll handler: dock navbar + highlight active link ---
+    function onScroll() {
+        var scrollY = window.pageYOffset || document.documentElement.scrollTop;
+
+        // Dock / undock
+        if (scrollY > dockThreshold) {
+            navbar.classList.add('docked');
+        } else {
+            navbar.classList.remove('docked');
+        }
+
+        // Active section detection
+        var currentSection = null;
+        var windowHeight = window.innerHeight;
+
+        for (var i = sections.length - 1; i >= 0; i--) {
+            var rect = sections[i].el.getBoundingClientRect();
+            // Consider a section "active" when its top is above 40% of viewport
+            if (rect.top <= windowHeight * 0.4) {
+                currentSection = sections[i].id;
+                break;
+            }
+        }
+
+        // If near top, default to home
+        if (scrollY < 50) {
+            currentSection = 'home';
+        }
+
+        // Update active classes
+        navLinks.forEach(function(link) {
+            if (link.getAttribute('data-section') === currentSection) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll(); // Run on load
 })();
