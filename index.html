@@ -13,30 +13,23 @@
     <div class="stars"></div>
     <div class="stars2"></div>
 
-    <!-- ========== NAVBAR ========== -->
+    <!-- ========== NAVBAR (BOTTOM, TEXT ONLY) ========== -->
     <nav class="navbar" id="navbar">
-        <a href="#home" class="nav-link active" data-section="home" title="Home">
-            <i class="fa-solid fa-house"></i>
-        </a>
-        <a href="#showcases" class="nav-link" data-section="showcases" title="Showcases">
-            <i class="fa-solid fa-video"></i>
-        </a>
-        <a href="#gallery" class="nav-link" data-section="gallery" title="Gallery">
-            <i class="fa-solid fa-images"></i>
-        </a>
-        <a href="#process" class="nav-link" data-section="process" title="Process">
-            <i class="fa-solid fa-list-check"></i>
-        </a>
-        <a href="#reviews" class="nav-link" data-section="reviews" title="Reviews">
-            <i class="fa-solid fa-star"></i>
-        </a>
-        <a href="#contact" class="nav-link" data-section="contact" title="Contact">
-            <i class="fa-solid fa-envelope"></i>
-        </a>
+        <a href="#home" class="nav-link active" data-section="home">Home</a>
+        <a href="#showcases" class="nav-link" data-section="showcases">Work</a>
+        <a href="#gallery" class="nav-link" data-section="gallery">Gallery</a>
+        <a href="#process" class="nav-link" data-section="process">Process</a>
+        <a href="#reviews" class="nav-link" data-section="reviews">Reviews</a>
+        <a href="#contact" class="nav-link" data-section="contact">Contact</a>
     </nav>
 
+    <!-- ========== SCROLL TO TOP BUTTON ========== -->
+    <button class="scroll-top-btn" id="scrollTopBtn" title="Scroll to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
     <section class="hero-section" id="home">
-        <div class="glass-card">
+        <div class="glass-card fade-blur">
             <img src="novaskin-wallpaper-diamondsword (1).jpg" alt="Profile Placeholder" class="profile-img">
 
             <h1>SpaceisOp</h1>
@@ -118,80 +111,81 @@
 
     <section class="work-section">
 
-        <h2 class="section-title hidden" id="showcases">Video Showcases</h2>
-        <span class="subsection-label hidden">Selected Works</span>
+        <h2 class="section-title fade-blur" id="showcases">Video Showcases</h2>
+        <span class="subsection-label fade-blur">Selected Works</span>
 
         <div class="media-grid">
-            <div class="media-card hidden">
+            <div class="media-card fade-blur">
                 <video src="2026-01-01 16-00-53.mp4" controls playsinline></video>
                 <span class="hover-label">Commission Work</span>
             </div>
 
-            <div class="media-card hidden">
+            <div class="media-card fade-blur">
                 <video src="2026-01-01 16-01-55 (2).mp4" controls playsinline></video>
                 <span class="hover-label">Commission Work</span>
             </div>
 
-            <div class="media-card hidden">
+            <div class="media-card fade-blur">
                 <video src="2026-01-01 16-09-00.mp4" controls playsinline></video>
                 <span class="hover-label">Commission Work</span>
             </div>
         </div>
 
-        <h2 class="section-title hidden" id="gallery">Gallery</h2>
-        <span class="subsection-label hidden">Snapshots & Designs</span>
+        <h2 class="section-title fade-blur" id="gallery">Gallery</h2>
+        <span class="subsection-label fade-blur">Snapshots & Designs</span>
 
         <div class="media-grid">
-            <div class="media-card hidden">
+            <div class="media-card fade-blur">
                 <img src="wrk11.png" alt="Work 4">
                 <span class="hover-label">Commission Work</span>
             </div>
 
-            <div class="media-card hidden">
+            <div class="media-card fade-blur">
                 <img src="wrk10 (1).png" alt="Work 5">
                 <span class="hover-label">Commission Work</span>
             </div>
 
-            <div class="media-card hidden">
+            <div class="media-card fade-blur">
                 <img src="wrk9.png" alt="Matchmaking UI">
                 <span class="hover-label">Commission Work</span>
             </div>
 
-            <div class="media-card hidden">
+            <div class="media-card fade-blur">
                 <img src="wrk7.png" alt="New Work 8">
                 <span class="hover-label">Commission Work</span>
             </div>
 
-            <div class="media-card hidden">
+            <div class="media-card fade-blur">
                 <img src="wrk6.png" alt="New Work 8">
                 <span class="hover-label">Commission Work</span>
             </div>
 
-            <div class="media-card hidden">
+            <div class="media-card fade-blur">
                 <img src="portfoliopic 2.png" alt="New Work 8">
                 <span class="hover-label">Commission Work</span>
             </div>
 
-            <div class="media-card hidden">
+            <div class="media-card fade-blur">
                 <img src="work2.png" alt="New Work 8">
                 <span class="hover-label">Commission Work</span>
             </div>
 
-            <div class="media-card hidden">
+            <div class="media-card fade-blur">
                 <img src="work3.png" alt="New Work 8">
                 <span class="hover-label">Commission Work</span>
             </div>
 
-            <div class="media-card hidden">
+            <div class="media-card fade-blur">
                 <img src="wrk5.png" alt="New Work 8">
                 <span class="hover-label">Commission Work</span>
             </div>
 
-            <div class="media-card hidden">
+            <div class="media-card fade-blur">
                 <img src="wrk12.png" alt="New Work 8">
                 <span class="hover-label">Commission Work</span>
             </div>
-            <div class="media-card hidden">
+
+            <div class="media-card fade-blur">
                 <img src="wrk13.png" alt="New Work 8">
                 <span class="hover-label">Commission Work</span>
             </div>
@@ -199,8 +193,8 @@
 
         <!-- ========== PROCESS TIMELINE ========== -->
         <section class="process-section" id="process">
-            <h2 class="section-title hidden">My Process</h2>
-            <span class="subsection-label hidden">How commissions work</span>
+            <h2 class="section-title fade-blur">My Process</h2>
+            <span class="subsection-label fade-blur">How commissions work</span>
 
             <div class="timeline">
                 <div class="timeline-track">
@@ -211,7 +205,7 @@
                     <div class="timeline-dot">
                         <i class="fa-solid fa-handshake"></i>
                     </div>
-                    <div class="timeline-card">
+                    <div class="timeline-card fade-blur">
                         <span class="step-number">Step #1</span>
                         <h3>Accept Commission Request</h3>
                         <p>You reach out via Discord or Roblox with your idea. I review it and if it's something I can do, I accept the commission and we move forward.</p>
@@ -222,7 +216,7 @@
                     <div class="timeline-dot">
                         <i class="fa-solid fa-palette"></i>
                     </div>
-                    <div class="timeline-card">
+                    <div class="timeline-card fade-blur">
                         <span class="step-number">Step #2</span>
                         <h3>UI Explanation & Planning</h3>
                         <p>I explain my UI approach — layout, color scheme, style direction, and any references. We align on the vision before any work begins.</p>
@@ -233,7 +227,7 @@
                     <div class="timeline-dot">
                         <i class="fa-solid fa-gamepad"></i>
                     </div>
-                    <div class="timeline-card">
+                    <div class="timeline-card fade-blur">
                         <span class="step-number">Step #3</span>
                         <h3>UI Preview in Roblox</h3>
                         <p>The UI will be put into a Roblox game for you to see and interact with. This way you can experience the design in-game before anything is finalized.</p>
@@ -244,7 +238,7 @@
                     <div class="timeline-dot">
                         <i class="fa-solid fa-hand-holding-dollar"></i>
                     </div>
-                    <div class="timeline-card">
+                    <div class="timeline-card fade-blur">
                         <span class="step-number">Step #4</span>
                         <h3>10% Upfront Payment</h3>
                         <p>Before I start the final production work, a 10% upfront payment is required. This secures your spot and shows commitment from both sides.</p>
@@ -255,7 +249,7 @@
                     <div class="timeline-dot">
                         <i class="fa-solid fa-paper-plane"></i>
                     </div>
-                    <div class="timeline-card">
+                    <div class="timeline-card fade-blur">
                         <span class="step-number">Step #5</span>
                         <h3>Deliver Finals</h3>
                         <p>I complete the work and send you the final files — screenshots, videos, or the actual UI. Revisions can be discussed if needed.</p>
@@ -266,7 +260,7 @@
                     <div class="timeline-dot">
                         <i class="fa-solid fa-circle-check"></i>
                     </div>
-                    <div class="timeline-card">
+                    <div class="timeline-card fade-blur">
                         <span class="step-number">Step #6</span>
                         <h3>Final Payment</h3>
                         <p>Once you're happy with the delivery, the remaining balance is paid. After that, the commission is officially complete!</p>
@@ -275,12 +269,12 @@
             </div>
         </section>
 
-        <h2 class="section-title hidden" id="reviews">Client Reviews</h2>
-        <span class="subsection-label hidden">What people say</span>
+        <h2 class="section-title fade-blur" id="reviews">Client Reviews</h2>
+        <span class="subsection-label fade-blur">What people say</span>
 
         <div class="reviews-grid">
 
-            <div class="review-card hidden">
+            <div class="review-card fade-blur">
                 <div class="reviewer-header">
                     <div class="icon-bg"><i class="fa-solid fa-user-astronaut"></i></div>
                     <h3>Aegis</h3>
@@ -300,7 +294,7 @@
                 </div>
             </div>
 
-            <div class="review-card hidden">
+            <div class="review-card fade-blur">
                 <div class="reviewer-header">
                     <div class="icon-bg"><i class="fa-solid fa-robot"></i></div>
                     <h3>Aetherion</h3>
@@ -329,7 +323,7 @@
         <img class="lightbox-content" id="lightbox-img">
     </div>
 
-    <div class="contact-box" id="contact">
+    <div class="contact-box fade-blur" id="contact">
         <p class="contact-label">Ready to order? DM Me!</p>
         <div class="social-icons">
             <a href="https://discord.com/users/1044587633235464282" target="_blank" title="Discord">
