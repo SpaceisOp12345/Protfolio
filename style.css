@@ -15,152 +15,129 @@ body {
 }
 
 /* ========================================
-   NAVBAR
+   NAVBAR — ICON ONLY, DOCKS TO BOTTOM
    ======================================== */
 
 .navbar {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 10000;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 16px 40px;
-    background: rgba(10, 10, 15, 0.85);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.nav-brand {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.nav-logo {
-    width: 36px;
-    height: 36px;
-    background: linear-gradient(135deg, #a8a8ff, #7b7bff);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
     justify-content: center;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #fff;
-    flex-shrink: 0;
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.nav-name {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #fff;
-    letter-spacing: 0.5px;
-    white-space: nowrap;
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    gap: 8px;
+    padding: 10px 20px;
+    background: rgba(20, 20, 25, 0.75);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .nav-link {
     display: flex;
     align-items: center;
-    gap: 7px;
-    padding: 8px 16px;
-    color: rgba(255, 255, 255, 0.5);
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    color: rgba(255, 255, 255, 0.4);
     text-decoration: none;
-    font-size: 0.82rem;
-    font-weight: 500;
-    border-radius: 10px;
+    border-radius: 50%;
     transition: all 0.3s ease;
     position: relative;
-    white-space: nowrap;
 }
 
 .nav-link i {
-    font-size: 0.9rem;
-    flex-shrink: 0;
+    font-size: 1.1rem;
     transition: all 0.3s ease;
 }
 
-.nav-link span {
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
 .nav-link:hover {
-    color: #fff;
-    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.08);
 }
 
 .nav-link.active {
     color: #a8a8ff;
-    background: rgba(168, 168, 255, 0.1);
+    background: rgba(168, 168, 255, 0.12);
 }
 
 .nav-link.active i {
-    text-shadow: 0 0 10px rgba(168, 168, 255, 0.5);
+    text-shadow: 0 0 12px rgba(168, 168, 255, 0.5);
 }
 
-/* --- NAVBAR DOCKED (bottom, compact) --- */
+/* Tooltip on hover */
+.nav-link::after {
+    content: attr(title);
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%) translateY(5px);
+    background: rgba(10, 10, 15, 0.95);
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border-radius: 8px;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-link:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Active dot indicator under icon */
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #a8a8ff;
+    transition: transform 0.3s ease;
+}
+
+.nav-link.active::before {
+    transform: translateX(-50%) scale(1);
+}
+
+/* --- DOCKED STATE (bottom) --- */
 .navbar.docked {
     top: auto;
-    bottom: 20px;
-    left: 50%;
-    right: auto;
-    transform: translateX(-50%);
-    padding: 8px 12px;
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(10, 10, 18, 0.92);
+    bottom: 24px;
     box-shadow: 0 8px 40px rgba(0, 0, 0, 0.7),
-                0 0 20px rgba(168, 168, 255, 0.08);
-    width: auto;
-    max-width: 90vw;
+                0 0 20px rgba(168, 168, 255, 0.06);
 }
 
-.navbar.docked .nav-brand {
-    display: none;
+/* When docked, tooltips show ABOVE */
+.navbar.docked .nav-link::after {
+    bottom: calc(100% + 8px);
+    top: auto;
 }
 
-.navbar.docked .nav-links {
-    gap: 4px;
+/* When NOT docked (top), tooltips show BELOW */
+.navbar:not(.docked) .nav-link::after {
+    bottom: auto;
+    top: calc(100% + 8px);
+    transform: translateX(-50%) translateY(-5px);
 }
 
-.navbar.docked .nav-link {
-    flex-direction: column;
-    gap: 3px;
-    padding: 10px 14px;
-    border-radius: 14px;
-}
-
-.navbar.docked .nav-link i {
-    font-size: 1.1rem;
-}
-
-.navbar.docked .nav-link span {
-    font-size: 0.6rem;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    opacity: 0.7;
-}
-
-.navbar.docked .nav-link.active {
-    background: rgba(168, 168, 255, 0.15);
-}
-
-.navbar.docked .nav-link.active span {
-    opacity: 1;
+.navbar:not(.docked) .nav-link:hover::after {
+    transform: translateX(-50%) translateY(0);
 }
 
 /* --- CUSTOM CURSOR --- */
@@ -748,13 +725,11 @@ h1 {
     position: relative;
 }
 
-/* --- TIMELINE CONTAINER --- */
 .timeline {
     position: relative;
     padding: 40px 0;
 }
 
-/* --- VERTICAL TRACK --- */
 .timeline-track {
     position: absolute;
     left: 50%;
@@ -767,7 +742,6 @@ h1 {
     overflow: hidden;
 }
 
-/* --- ANIMATED PROGRESS LINE --- */
 .timeline-progress {
     position: absolute;
     top: 0;
@@ -781,7 +755,6 @@ h1 {
                 0 0 25px rgba(168, 168, 255, 0.2);
 }
 
-/* --- TIMELINE ITEM --- */
 .timeline-item {
     position: relative;
     display: flex;
@@ -804,7 +777,6 @@ h1 {
     padding-left: calc(50% + 40px);
 }
 
-/* --- TIMELINE DOT --- */
 .timeline-dot {
     position: absolute;
     left: 50%;
@@ -851,17 +823,10 @@ h1 {
 }
 
 @keyframes dotPulse {
-    0% {
-        transform: scale(1);
-        opacity: 1;
-    }
-    100% {
-        transform: scale(1.8);
-        opacity: 0;
-    }
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(1.8); opacity: 0; }
 }
 
-/* --- TIMELINE CARD --- */
 .timeline-card {
     background: rgba(15, 15, 20, 0.8);
     backdrop-filter: blur(12px);
@@ -893,7 +858,6 @@ h1 {
     box-shadow: 0 8px 40px rgba(168, 168, 255, 0.12);
 }
 
-/* --- CARD INNER CONTENT --- */
 .step-number {
     display: inline-block;
     font-size: 0.7rem;
@@ -923,7 +887,6 @@ h1 {
     font-weight: 300;
 }
 
-/* --- CONNECTOR LINES --- */
 .timeline-item.left::after,
 .timeline-item.right::after {
     content: '';
@@ -949,11 +912,10 @@ h1 {
 }
 
 /* ============================================
-   RESPONSIVE: MOBILE
+   RESPONSIVE
    ============================================ */
 @media (max-width: 700px) {
 
-    /* Timeline mobile */
     .timeline-track {
         left: 24px;
         transform: none;
@@ -1003,43 +965,34 @@ h1 {
         font-size: 0.82rem;
     }
 
-    /* Navbar mobile top state */
-    .navbar:not(.docked) {
-        padding: 12px 16px;
+    /* Navbar smaller on mobile */
+    .navbar {
+        gap: 4px;
+        padding: 8px 14px;
     }
 
-    .navbar:not(.docked) .nav-name {
-        display: none;
+    .nav-link {
+        width: 38px;
+        height: 38px;
     }
 
-    .navbar:not(.docked) .nav-link span {
-        display: none;
-    }
-
-    .navbar:not(.docked) .nav-links {
-        gap: 2px;
-    }
-
-    .navbar:not(.docked) .nav-link {
-        padding: 8px 10px;
-    }
-
-    /* Navbar mobile docked */
-    .navbar.docked .nav-link {
-        padding: 8px 10px;
-    }
-
-    .navbar.docked .nav-link span {
-        font-size: 0.5rem;
+    .nav-link i {
+        font-size: 0.95rem;
     }
 }
 
 @media (max-width: 420px) {
-    .navbar.docked .nav-link span {
-        display: none;
+    .navbar {
+        gap: 2px;
+        padding: 6px 10px;
     }
 
-    .navbar.docked .nav-link {
-        padding: 10px 12px;
+    .nav-link {
+        width: 34px;
+        height: 34px;
+    }
+
+    .nav-link i {
+        font-size: 0.85rem;
     }
 }
