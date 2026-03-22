@@ -1073,3 +1073,206 @@ h1 {
         font-size: 0.8rem;
     }
 }
+
+/* ========================================
+   GAMES & GAME STUDIOS SECTION
+   ======================================== */
+
+.studios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+    margin-bottom: 60px;
+}
+
+.studio-card {
+    background: linear-gradient(145deg, rgba(25, 25, 35, 0.9), rgba(12, 12, 18, 0.95));
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 35px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                border-color 0.4s ease,
+                box-shadow 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.studio-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #a8a8ff, transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.studio-card:hover::before {
+    opacity: 1;
+}
+
+.studio-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(168, 168, 255, 0.4);
+    box-shadow: 0 16px 50px rgba(168, 168, 255, 0.12),
+                0 8px 30px rgba(0, 0, 0, 0.6);
+}
+
+.studio-icon {
+    width: 72px;
+    height: 72px;
+    background: rgba(168, 168, 255, 0.08);
+    border: 2px solid rgba(168, 168, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.studio-icon i {
+    font-size: 1.8rem;
+    color: #a8a8ff;
+    transition: text-shadow 0.3s ease;
+}
+
+.studio-icon.game-icon {
+    background: rgba(130, 255, 180, 0.08);
+    border-color: rgba(130, 255, 180, 0.2);
+}
+
+.studio-icon.game-icon i {
+    color: #82ffb4;
+}
+
+.studio-card:hover .studio-icon {
+    border-color: rgba(168, 168, 255, 0.5);
+    background: rgba(168, 168, 255, 0.12);
+    box-shadow: 0 0 20px rgba(168, 168, 255, 0.2);
+}
+
+.studio-card:hover .studio-icon i {
+    text-shadow: 0 0 12px rgba(168, 168, 255, 0.5);
+}
+
+.studio-card:hover .studio-icon.game-icon {
+    border-color: rgba(130, 255, 180, 0.5);
+    background: rgba(130, 255, 180, 0.12);
+    box-shadow: 0 0 20px rgba(130, 255, 180, 0.2);
+}
+
+.studio-card:hover .studio-icon.game-icon i {
+    text-shadow: 0 0 12px rgba(130, 255, 180, 0.5);
+}
+
+.studio-type-badge {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #a8a8ff;
+    background: rgba(168, 168, 255, 0.1);
+    border: 1px solid rgba(168, 168, 255, 0.2);
+    padding: 4px 14px;
+    border-radius: 20px;
+}
+
+.studio-type-badge.game-badge {
+    color: #82ffb4;
+    background: rgba(130, 255, 180, 0.1);
+    border-color: rgba(130, 255, 180, 0.2);
+}
+
+.studio-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.5px;
+}
+
+.studio-description {
+    font-size: 0.88rem;
+    color: #999;
+    line-height: 1.6;
+    font-weight: 300;
+    max-width: 280px;
+}
+
+.studio-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+    padding: 12px 24px;
+    background: rgba(168, 168, 255, 0.1);
+    border: 1px solid rgba(168, 168, 255, 0.3);
+    border-radius: 12px;
+    color: #d0d0ff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.studio-btn:hover {
+    background: rgba(168, 168, 255, 0.2);
+    border-color: rgba(168, 168, 255, 0.6);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(168, 168, 255, 0.2);
+}
+
+.studio-btn-icon {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+    flex-shrink: 0;
+}
+
+.studio-btn i {
+    font-size: 0.7rem;
+    opacity: 0.7;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.studio-btn:hover i {
+    transform: translate(2px, -2px);
+    opacity: 1;
+}
+
+/* Studios grid stagger */
+.studios-grid .fade-blur:nth-child(1) { transition-delay: 0s; }
+.studios-grid .fade-blur:nth-child(2) { transition-delay: 0.15s; }
+
+/* Responsive */
+@media (max-width: 700px) {
+    .studios-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .studio-card {
+        padding: 28px 22px;
+    }
+
+    .studio-name {
+        font-size: 1.2rem;
+    }
+
+    .studio-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .studio-icon i {
+        font-size: 1.5rem;
+    }
+}
