@@ -1276,3 +1276,104 @@ h1 {
         font-size: 1.5rem;
     }
 }
+/* ========================================
+   GAME CARD SPECIFIC STYLES
+   ======================================== */
+
+.game-thumbnail-wrapper {
+    width: 100%;
+    max-width: 280px;
+    aspect-ratio: 16/9;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(130, 255, 180, 0.2);
+    position: relative;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.game-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.game-thumbnail.loaded {
+    opacity: 1;
+}
+
+.thumbnail-loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #82ffb4;
+    font-size: 1.5rem;
+}
+
+.game-stats {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    width: 100%;
+    padding: 12px 0;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.stat-item i {
+    color: #82ffb4;
+    font-size: 1.1rem;
+    margin-bottom: 2px;
+}
+
+.stat-value {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.3px;
+}
+
+.stat-label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #999;
+    font-weight: 500;
+}
+
+/* Hover effects for game card thumbnail */
+.game-card:hover .game-thumbnail-wrapper {
+    border-color: rgba(130, 255, 180, 0.5);
+    box-shadow: 0 0 15px rgba(130, 255, 180, 0.15);
+}
+
+.game-card:hover .game-thumbnail {
+    transform: scale(1.05);
+}
+
+.game-thumbnail {
+    transition: opacity 0.3s ease, transform 0.4s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 700px) {
+    .game-thumbnail-wrapper {
+        max-width: 100%;
+    }
+    
+    .game-stats {
+        gap: 20px;
+    }
+    
+    .stat-value {
+        font-size: 1rem;
+    }
+}
