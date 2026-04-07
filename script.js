@@ -278,3 +278,84 @@
     window.addEventListener('scroll', toggleButton, { passive: true });
     toggleButton();
 })();
+
+
+// ========== FETCH ROBLOX GAME DATA ==========
+(function() {
+    var gameCard = document.querySelector('.game-card');
+    if (!gameCard) return;
+
+    var gameThumb = document.getElementById('gameThumb');
+    var thumbLoader = document.getElementById('thumbLoader');
+    var gamePlaying = document.getElementById('gamePlaying');
+    var gameVisits = document.getElementById('gameVisits');
+
+    // The Place ID from the URL
+    var placeId = '118637423917462';
+
+    // Format large numbers
+    function formatNumber(num) {
+        if (num >= 1000000000) {
+            return (num / 1000000000).toFixed(1) + 'B';
+        }
+        if (num >= 1000000) {
+            return (num / 1000000).toFixed(1) + 'M';
+        }
+        if (num >= 1000) {
+            return (num / 1000).toFixed(1) + 'K';
+        }
+        return num.toString();
+    }
+
+    // First, get the Universe ID from the Place ID
+    fetch('https://apis.roproxy.com/universes/v1/places/' + placeId + '/universe')
+        .then(function(response) { return response.json(); })
+        .then(function(data) {
+            if (data.universeId) {
+                var universeId = data.universeId;
+                
+                // Fetch game thumbnail
+                fetch('https://thumbnails.roproxy.com/v1/games/icons?universeIds=' + universeId + '&returnPolicy=PlaceHolder&size=512x512&format=Png&isCircular=false')
+                    .then(function(response) { return response.json(); })
+                    .then(function(thumbData) {
+                        if (thumbData.data && thumbData.data[0] && thumbData.data[0].imageUrl) {
+                            gameThumb.src = thumbData.data[0].imageUrl;
+                            gameThumb.onload = function() {
+                                gameThumb.classList.add('loaded');
+                                if (thumbLoader) thumbLoader.style.display = 'none';
+                            };
+                        }
+                    })
+                    .catch(function(error) {
+                        console.log('Error fetching thumbnail:', error);
+                        if (thumbLoader) thumbLoader.innerHTML = '<i class="fa-solid fa-image" style="opacity: 0.3;"></i>';
+                    });
+
+                // Fetch game details (visits, playing)
+                fetch('https://games.roproxy.com/v1/games?universeIds=' + universeId)
+                    .then(function(response) { return response.json(); })
+                    .then(function(gameData) {
+                        if (gameData.data && gameData.data[0]) {
+                            var game = gameData.data[0];
+                            
+                            // Update playing count
+                            if (game.playing !== undefined) {
+                                gamePlaying.textContent = formatNumber(game.playing);
+                            }
+                            
+                            // Update visits count
+                            if (game.visits !== undefined) {
+                                gameVisits.textContent = formatNumber(game.visits);
+                            }
+                        }
+                    })
+                    .catch(function(error) {
+                        console.log('Error fetching game data:', error);
+                    });
+            }
+        })
+        .catch(function(error) {
+            console.log('Error fetching universe ID:', error);
+            if (thumbLoader) thumbLoader.innerHTML = '<i class="fa-solid fa-exclamation-triangle" style="opacity: 0.3;"></i>';
+        });
+})();
